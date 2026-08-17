@@ -43,24 +43,24 @@
         </div>
 
         <form id="orderForm" class="space-y-10">
-            <!-- 商品選擇區 -->
+            <!-- 1. 商品選擇區 -->
             <section>
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
                     選擇商品
                 </h2>
-                <!-- 調整為三欄式排版，以容納6個商品 -->
+                <!-- 電腦版三欄，平板兩欄，手機一欄 -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- 商品 1 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
+                            <!-- 修改 src 內的檔名即可更換圖片，object-contain 確保圖片完整不裁切 -->
                             <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
                         <p class="text-sm text-slate-500 mb-4">700mL (42%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty1" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -78,7 +78,6 @@
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
                         <p class="text-sm text-slate-500 mb-4">600mL (53.1%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty2" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -96,7 +95,6 @@
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲</h3>
                         <p class="text-sm text-slate-500 mb-4">(8入)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty3" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -114,7 +112,6 @@
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲禮盒</h3>
                         <p class="text-sm text-slate-500 mb-4">(8入*2)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty4" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -132,7 +129,6 @@
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花雙享禮盒</h3>
                         <p class="text-sm text-slate-500 mb-4">精選雙享搭配</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty5" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -150,7 +146,6 @@
                         <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
                         <p class="text-sm text-slate-500 mb-4">伴手禮盒 (250mL)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
                             <div id="price-qty6" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
@@ -163,6 +158,7 @@
                 </div>
             </section>
 
+            <!-- 2. 收件人資訊區 -->
             <section>
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
@@ -171,19 +167,33 @@
                 <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">姓名 <span class="text-red-500">*</span></label>
+                        <!-- required 代表必填 -->
                         <input type="text" id="customerName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：王小明">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">聯絡電話 <span class="text-red-500">*</span></label>
+                        <!-- required 代表必填 -->
                         <input type="tel" id="customerPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：0912345678">
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-slate-700 mb-2">送貨地址 <span class="text-red-500">*</span></label>
+                        <!-- required 代表必填 -->
                         <input type="text" id="customerAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="請輸入完整收件地址">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">發票抬頭 <span class="text-slate-400 text-xs font-normal">(選填)</span></label>
+                        <!-- 沒有 required 代表選填 -->
+                        <input type="text" id="companyName" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="若需統編請填寫公司名稱">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">統一編號 <span class="text-slate-400 text-xs font-normal">(選填)</span></label>
+                        <!-- 沒有 required 代表選填 -->
+                        <input type="text" id="taxId" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：12345678">
                     </div>
                 </div>
             </section>
 
+            <!-- 結帳區 -->
             <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
@@ -205,54 +215,53 @@
         </form>
     </main>
 
+    <!-- 彈出視窗 Modal -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
             <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-2 brand-font">訂購成功！</h3>
-            <p class="text-slate-500 text-center mb-6">我們已收到您的訂單資料，將會盡快與您聯繫安排出貨事宜。</p>
+            <!-- 自訂的成功訊息 -->
+            <h3 class="text-2xl font-bold text-center mb-2 brand-font">恭喜您成功送出訂單</h3>
+            <p class="text-slate-500 text-center mb-6">後續會有專人聯絡與服務您</p>
             <button onclick="closeModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-medium transition">
                 關閉並返回
             </button>
         </div>
     </div>
 
+    <!-- 程式邏輯區塊 -->
     <script>
-        // ⚠️ 這裡改為讓 Google 試算表自動填入，先預設為 0
+        // 1. 商品售價（未來改價格請直接修改這裡的數字，請勿輸入逗號）
         let prices = {
-            qty1: 0, qty2: 0, qty3: 0, qty4: 0, qty5: 0, qty6: 0
+            qty1: 3800, // Hanaskey茶世紀700mL
+            qty2: 4800, // 天香茶花酒600mL
+            qty3: 600,  // 天香茶花飲
+            qty4: 1600, // 天香茶花飲禮盒
+            qty5: 1980, // 天香茶花雙享禮盒
+            qty6: 1280  // Hanaskey茶世紀伴手禮盒
         };
 
-        // 👇 共用同一個 Webhook URL
+        // 2. 你的 Google Apps Script 網址
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec'; 
 
-        // 網頁一載入，就去 Google 試算表抓最新價格！
+        // 3. 更新畫面上顯示的金額文字
+        function updatePriceDisplay() {
+            document.getElementById('price-qty1').innerText = 'NT$ ' + prices.qty1.toLocaleString();
+            document.getElementById('price-qty2').innerText = 'NT$ ' + prices.qty2.toLocaleString();
+            document.getElementById('price-qty3').innerText = 'NT$ ' + prices.qty3.toLocaleString();
+            document.getElementById('price-qty4').innerText = 'NT$ ' + prices.qty4.toLocaleString();
+            document.getElementById('price-qty5').innerText = 'NT$ ' + prices.qty5.toLocaleString();
+            document.getElementById('price-qty6').innerText = 'NT$ ' + prices.qty6.toLocaleString();
+            calculateTotal();
+        }
+
+        // 網頁一載入，立即顯示價格（秒開不卡頓）
         window.onload = function() {
-            fetch(scriptURL)
-                .then(response => response.json())
-                .then(data => {
-                    // 把試算表的資料寫進 prices 裡
-                    prices = data;
-                    
-                    // 更新畫面上顯示的金額文字
-                    document.getElementById('price-qty1').innerText = 'NT$ ' + (prices.qty1 || 0).toLocaleString();
-                    document.getElementById('price-qty2').innerText = 'NT$ ' + (prices.qty2 || 0).toLocaleString();
-                    document.getElementById('price-qty3').innerText = 'NT$ ' + (prices.qty3 || 0).toLocaleString();
-                    document.getElementById('price-qty4').innerText = 'NT$ ' + (prices.qty4 || 0).toLocaleString();
-                    document.getElementById('price-qty5').innerText = 'NT$ ' + (prices.qty5 || 0).toLocaleString();
-                    document.getElementById('price-qty6').innerText = 'NT$ ' + (prices.qty6 || 0).toLocaleString();
-                    
-                    // 重新計算下方總金額
-                    calculateTotal();
-                })
-                .catch(error => {
-                    console.error('抓取價格失敗', error);
-                    // 這裡先不跳警告，免得嚇到客人
-                });
+            updatePriceDisplay();
         };
 
-        // 產品數量增減邏輯
+        // 4. 產品數量增減邏輯
         function updateQty(id, change) {
             const input = document.getElementById(id);
             let currentVal = parseInt(input.value) || 0;
@@ -262,18 +271,17 @@
             calculateTotal();
         }
 
-        // 計算總金額
+        // 5. 計算總金額
         function calculateTotal() {
             let total = 0;
             for (const [id, price] of Object.entries(prices)) {
                 const qty = parseInt(document.getElementById(id).value) || 0;
                 total += qty * price;
             }
-            // 格式化數字加上千分位逗號
             document.getElementById('totalPrice').innerText = total.toLocaleString('en-US');
         }
 
-        // 處理表單送出
+        // 6. 處理表單送出
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault(); // 防止網頁重整
 
@@ -296,6 +304,8 @@
                 name: document.getElementById('customerName').value,
                 phone: document.getElementById('customerPhone').value,
                 address: document.getElementById('customerAddress').value,
+                companyName: document.getElementById('companyName').value,
+                taxId: document.getElementById('taxId').value,
                 qty1: qty1,
                 qty2: qty2,
                 qty3: qty3,
@@ -308,7 +318,7 @@
             submitToGoogleSheet(orderData);
         });
 
-        // 傳送資料到 Google Apps Script (Webhook)
+        // 7. 傳送資料到 Google
         function submitToGoogleSheet(data) {
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -318,10 +328,9 @@
             btnText.innerText = '處理中...';
             btnSpinner.classList.remove('hidden');
 
-            // 真正傳送資料到 Google
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // ⭐️ 新增這行：避開瀏覽器的跨網域安全阻擋 (CORS)
+                mode: 'no-cors', // 避開安全阻擋
                 body: new URLSearchParams(data)
             })
             .then(response => {
@@ -329,10 +338,10 @@
                 btnText.innerText = '確認送出訂單';
                 btnSpinner.classList.add('hidden');
                 
-                // ⭐️ 因為使用了 no-cors，只要沒報錯我們就視為成功送出
+                // 因為 no-cors，不報錯即視為成功
                 document.getElementById('orderForm').reset();
                 calculateTotal();
-                showModal('訂購成功！', true);
+                showModal('恭喜您成功送出訂單', true);
             })
             .catch(error => {
                 btn.disabled = false;
@@ -342,6 +351,7 @@
             });
         }
 
+        // 8. 顯示彈出視窗
         function showModal(message, isSuccess) {
             const modal = document.getElementById('successModal');
             const modalContent = document.getElementById('modalContent');
@@ -360,6 +370,7 @@
             }, 10);
         }
 
+        // 9. 關閉視窗
         function closeModal() {
             const modal = document.getElementById('successModal');
             const modalContent = document.getElementById('modalContent');
@@ -369,9 +380,10 @@
             
             setTimeout(() => {
                 modal.classList.add('hidden');
+                // 恢復綠色打勾與客製化文字
                 modalContent.querySelector('.bg-amber-100')?.setAttribute('class', 'w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4');
-                modalContent.querySelector('h3').innerText = '訂購成功！';
-                modalContent.querySelector('p').innerText = '我們已收到您的訂單資料，將會盡快與您聯繫安排出貨事宜。';
+                modalContent.querySelector('h3').innerText = '恭喜您成功送出訂單';
+                modalContent.querySelector('p').innerText = '後續會有專人聯絡與服務您';
             }, 300);
         }
     </script>
