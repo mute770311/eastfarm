@@ -54,7 +54,6 @@
                     <!-- 商品 1：HANASKEY 威士忌 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
-                            <!-- 請將下方的 src="..." 裡面的網址替換成你的 HANASKEY 威士忌圖片網址 -->
                             <img src="6.jpg" alt="HANASKEY 威士忌" class="object-cover w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">HANASKEY 威士忌</h3>
@@ -72,7 +71,6 @@
                     <!-- 商品 2：天香茶花酒 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
-                            <!-- 請將下方的 src="..." 裡面的網址替換成你的天香茶花酒圖片網址 -->
                             <img src="6.jpg" alt="天香茶花酒" class="object-cover w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
@@ -151,7 +149,6 @@
             camelliaQty: 800
         };
 
-        // 產品數量增減邏輯
         function updateQty(id, change) {
             const input = document.getElementById(id);
             let currentVal = parseInt(input.value) || 0;
@@ -161,20 +158,17 @@
             calculateTotal();
         }
 
-        // 計算總金額
         function calculateTotal() {
             let total = 0;
             for (const [id, price] of Object.entries(prices)) {
                 const qty = parseInt(document.getElementById(id).value) || 0;
                 total += qty * price;
             }
-            // 格式化數字加上千分位逗號
             document.getElementById('totalPrice').innerText = total.toLocaleString('en-US');
         }
 
-        // 處理表單送出
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // 防止網頁重整
+            e.preventDefault(); 
 
             const whiskeyQty = parseInt(document.getElementById('whiskeyQty').value) || 0;
             const camelliaQty = parseInt(document.getElementById('camelliaQty').value) || 0;
@@ -184,7 +178,6 @@
                 return;
             }
 
-            // 準備要傳送的資料
             const orderData = {
                 name: document.getElementById('customerName').value,
                 phone: document.getElementById('customerPhone').value,
@@ -197,44 +190,21 @@
             submitToGoogleSheet(orderData);
         });
 
-        // 傳送資料到 Google Apps Script (Webhook)
         function submitToGoogleSheet(data) {
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
             const btnSpinner = document.getElementById('btnSpinner');
 
-            // 顯示載入中動畫
             btn.disabled = true;
             btnText.innerText = '處理中...';
             btnSpinner.classList.remove('hidden');
 
-            /* 
-             * ⚠️ 這裡的 URL 要換成你用 Google Apps Script 發布的「網頁應用程式 URL」
-             * 稍後我會教你怎麼取得這串網址
-             */
-            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; 
+            // 👇 ⚠️ 請把下面單引號裡面的文字，換成你剛剛複製的 Google URL ⚠️ 👇
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec'; 
 
-            // 因為安全限制，我們這裡目前先模擬送出成功的動畫
-            // 當你設定好 GAS 後，請把這段 setTimeout 替換為下方的 fetch 程式碼
-            
-            setTimeout(() => {
-                // 恢復按鈕狀態
-                btn.disabled = false;
-                btnText.innerText = '確認送出訂單';
-                btnSpinner.classList.add('hidden');
-                
-                // 清空表單
-                document.getElementById('orderForm').reset();
-                calculateTotal();
-
-                // 顯示成功視窗
-                showModal('訂購成功！', true);
-            }, 1500);
-
-            /* --- 真正要串接時，請解除下方的註解，並刪除上面的 setTimeout ---
+            // 真正傳送資料到 Google
             fetch(scriptURL, {
                 method: 'POST',
-                // 使用 form-urlencoded 格式避開 CORS 問題
                 body: new URLSearchParams(data)
             })
             .then(response => {
@@ -247,7 +217,7 @@
                     calculateTotal();
                     showModal('訂購成功！', true);
                 } else {
-                    showModal('發生錯誤，請稍後再試。', false);
+                    showModal('發生錯誤，請檢查後台設定。', false);
                 }
             })
             .catch(error => {
@@ -256,15 +226,12 @@
                 btnSpinner.classList.add('hidden');
                 showModal('網路連線異常，請稍後再試。', false);
             });
-            ------------------------------------------------------------- */
         }
 
-        // 控制 Modal 顯示
         function showModal(message, isSuccess) {
             const modal = document.getElementById('successModal');
             const modalContent = document.getElementById('modalContent');
             
-            // 如果失敗，可以替換 icon 和文字，這裡先簡單共用版型
             if(!isSuccess) {
                 modalContent.querySelector('h3').innerText = '提醒';
                 modalContent.querySelector('p').innerText = message;
@@ -273,7 +240,6 @@
             }
 
             modal.classList.remove('hidden');
-            // 延遲一點點加 opacity 才能觸發 CSS transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
@@ -289,7 +255,6 @@
             
             setTimeout(() => {
                 modal.classList.add('hidden');
-                // 恢復綠色打勾樣式（以防被錯誤狀態改掉）
                 modalContent.querySelector('.bg-amber-100')?.setAttribute('class', 'w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4');
                 modalContent.querySelector('h3').innerText = '訂購成功！';
                 modalContent.querySelector('p').innerText = '我們已收到您的訂單資料，將會盡快與您聯繫安排出貨事宜。';
