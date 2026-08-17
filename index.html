@@ -49,38 +49,110 @@
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
                     選擇商品
                 </h2>
-                <div class="grid md:grid-cols-2 gap-6">
+                <!-- 調整為三欄式排版，以容納6個商品 -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <!-- 商品 1：HANASKEY 威士忌 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
+                    <!-- 商品 1 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
-                            <img src="6.jpg" alt="HANASKEY 威士忌" class="object-cover w-full h-full">
+                            <!-- 請換成你的真實圖片網址 -->
+                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-cover w-full h-full">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">HANASKEY 威士忌</h3>
-                        <p class="text-sm text-slate-500 mb-4 h-10">經過頂級橡木桶熟成，帶有深邃的麥芽香氣與圓潤口感。</p>
+                        <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
+                        <p class="text-sm text-slate-500 mb-4">700mL (42%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 1,200</div>
+                            <!-- ⚠️ 請在此修改真實價格 -->
+                            <div class="font-semibold text-lg text-amber-700">NT$ 3,800</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('whiskeyQty', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="whiskeyQty" name="whiskeyQty" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('whiskeyQty', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                                <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty1" name="qty1" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty1', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 商品 2：天香茶花酒 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
+                    <!-- 商品 2 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
-                            <img src="6.jpg" alt="天香茶花酒" class="object-cover w-full h-full">
+                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-cover w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
-                        <p class="text-sm text-slate-500 mb-4 h-10">融合天然茶花萃取，清新淡雅，適合做為餐前酒或搭餐品飲。</p>
+                        <p class="text-sm text-slate-500 mb-4">600mL (53.1%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 800</div>
+                            <!-- ⚠️ 請在此修改真實價格 -->
+                            <div class="font-semibold text-lg text-amber-700">NT$ 4,800</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('camelliaQty', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="camelliaQty" name="camelliaQty" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('camelliaQty', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                                <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty2" name="qty2" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty2', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 3 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <img src="3.jpg" alt="天香茶花飲" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲</h3>
+                        <p class="text-sm text-slate-500 mb-4">(8入)</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 600</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty3" name="qty3" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty3', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 4 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲禮盒</h3>
+                        <p class="text-sm text-slate-500 mb-4">(8入*2)</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 1,600</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty4" name="qty4" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty4', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 5 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花雙享禮盒</h3>
+                        <p class="text-sm text-slate-500 mb-4">精選雙享搭配</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 1,980</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty5" name="qty5" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty5', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 6 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
+                        <p class="text-sm text-slate-500 mb-4">伴手禮盒 (250mL)</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 1,280</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="qty6" name="qty6" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty6', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
@@ -144,11 +216,17 @@
     </div>
 
     <script>
+        // ⚠️ 請修改為真實售價，目前的數字為我隨機打的暫代數字
         const prices = {
-            whiskeyQty: 1200,
-            camelliaQty: 800
+            qty1: 3800, // Hanaskey茶世紀700mL
+            qty2: 4800, // 天香茶花酒600mL
+            qty3: 600,  // 天香茶花飲
+            qty4: 1600, // 天香茶花飲禮盒
+            qty5: 1980, // 天香茶花雙享禮盒
+            qty6: 1280  // 伴手禮盒
         };
 
+        // 產品數量增減邏輯
         function updateQty(id, change) {
             const input = document.getElementById(id);
             let currentVal = parseInt(input.value) || 0;
@@ -158,38 +236,53 @@
             calculateTotal();
         }
 
+        // 計算總金額
         function calculateTotal() {
             let total = 0;
             for (const [id, price] of Object.entries(prices)) {
                 const qty = parseInt(document.getElementById(id).value) || 0;
                 total += qty * price;
             }
+            // 格式化數字加上千分位逗號
             document.getElementById('totalPrice').innerText = total.toLocaleString('en-US');
         }
 
+        // 處理表單送出
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
+            e.preventDefault(); // 防止網頁重整
 
-            const whiskeyQty = parseInt(document.getElementById('whiskeyQty').value) || 0;
-            const camelliaQty = parseInt(document.getElementById('camelliaQty').value) || 0;
+            // 抓取 6 個商品的數量
+            const qty1 = parseInt(document.getElementById('qty1').value) || 0;
+            const qty2 = parseInt(document.getElementById('qty2').value) || 0;
+            const qty3 = parseInt(document.getElementById('qty3').value) || 0;
+            const qty4 = parseInt(document.getElementById('qty4').value) || 0;
+            const qty5 = parseInt(document.getElementById('qty5').value) || 0;
+            const qty6 = parseInt(document.getElementById('qty6').value) || 0;
 
-            if (whiskeyQty === 0 && camelliaQty === 0) {
+            // 確保客房至少有買一樣
+            if (qty1 === 0 && qty2 === 0 && qty3 === 0 && qty4 === 0 && qty5 === 0 && qty6 === 0) {
                 showModal('請至少選擇一項商品再結帳喔！', false);
                 return;
             }
 
+            // 準備要傳送的資料
             const orderData = {
                 name: document.getElementById('customerName').value,
                 phone: document.getElementById('customerPhone').value,
                 address: document.getElementById('customerAddress').value,
-                whiskeyQty: whiskeyQty,
-                camelliaQty: camelliaQty,
+                qty1: qty1,
+                qty2: qty2,
+                qty3: qty3,
+                qty4: qty4,
+                qty5: qty5,
+                qty6: qty6,
                 totalAmount: parseInt(document.getElementById('totalPrice').innerText.replace(/,/g, ''))
             };
 
             submitToGoogleSheet(orderData);
         });
 
+        // 傳送資料到 Google Apps Script (Webhook)
         function submitToGoogleSheet(data) {
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -205,6 +298,7 @@
             // 真正傳送資料到 Google
             fetch(scriptURL, {
                 method: 'POST',
+                mode: 'no-cors', // ⭐️ 新增這行：避開瀏覽器的跨網域安全阻擋 (CORS)
                 body: new URLSearchParams(data)
             })
             .then(response => {
@@ -212,19 +306,16 @@
                 btnText.innerText = '確認送出訂單';
                 btnSpinner.classList.add('hidden');
                 
-                if(response.ok) {
-                    document.getElementById('orderForm').reset();
-                    calculateTotal();
-                    showModal('訂購成功！', true);
-                } else {
-                    showModal('發生錯誤，請檢查後台設定。', false);
-                }
+                // ⭐️ 因為使用了 no-cors，只要沒報錯我們就視為成功送出
+                document.getElementById('orderForm').reset();
+                calculateTotal();
+                showModal('訂購成功！', true);
             })
             .catch(error => {
                 btn.disabled = false;
                 btnText.innerText = '確認送出訂單';
                 btnSpinner.classList.add('hidden');
-                showModal('網路連線異常，請稍後再試。', false);
+                showModal('發生錯誤，請稍後再試。', false);
             });
         }
 
