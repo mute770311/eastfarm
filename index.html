@@ -54,16 +54,14 @@
                     
                     <!-- 商品 1 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <!-- ⚠️ 這裡修改了：將 bg-slate-100 改為 bg-white，這樣有白邊時比較自然 -->
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 這裡修改了：將 object-cover 改成了 object-contain -->
                             <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
                         <p class="text-sm text-slate-500 mb-4">700mL (42%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 請在此修改真實價格 -->
-                            <div class="font-semibold text-lg text-amber-700">NT$ 3,800</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty1" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty1" name="qty1" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -75,14 +73,13 @@
                     <!-- 商品 2 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 將 object-cover 改成了 object-contain -->
                             <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
                         <p class="text-sm text-slate-500 mb-4">600mL (53.1%)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <!-- ⚠️ 請在此修改真實價格 -->
-                            <div class="font-semibold text-lg text-amber-700">NT$ 4,800</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty2" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty2" name="qty2" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -94,13 +91,13 @@
                     <!-- 商品 3 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 將 object-cover 改成了 object-contain -->
                             <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲</h3>
                         <p class="text-sm text-slate-500 mb-4">(8入)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 600</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty3" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty3" name="qty3" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -112,13 +109,13 @@
                     <!-- 商品 4 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 將 object-cover 改成了 object-contain -->
                             <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲禮盒</h3>
                         <p class="text-sm text-slate-500 mb-4">(8入*2)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 1,600</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty4" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty4" name="qty4" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -130,13 +127,13 @@
                     <!-- 商品 5 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 將 object-cover 改成了 object-contain -->
                             <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">天香茶花雙享禮盒</h3>
                         <p class="text-sm text-slate-500 mb-4">精選雙享搭配</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 1,980</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty5" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty5" name="qty5" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -148,13 +145,13 @@
                     <!-- 商品 6 -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- ⚠️ 將 object-cover 改成了 object-contain -->
                             <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full">
                         </div>
                         <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
                         <p class="text-sm text-slate-500 mb-4">伴手禮盒 (250mL)</p>
                         <div class="flex justify-between items-center mt-auto">
-                            <div class="font-semibold text-lg text-amber-700">NT$ 1,280</div>
+                            <!-- ⚠️ 修改為 ID，讓 JS 替換價格 -->
+                            <div id="price-qty6" class="font-semibold text-lg text-amber-700">載入中...</div>
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
                                 <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
                                 <input type="number" id="qty6" name="qty6" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
@@ -222,14 +219,37 @@
     </div>
 
     <script>
-        // ⚠️ 請修改為真實售價，目前的數字為我隨機打的暫代數字
-        const prices = {
-            qty1: 3800, // Hanaskey茶世紀700mL
-            qty2: 4800, // 天香茶花酒600mL
-            qty3: 600,  // 天香茶花飲
-            qty4: 1600, // 天香茶花飲禮盒
-            qty5: 1980, // 天香茶花雙享禮盒
-            qty6: 1280  // 伴手禮盒
+        // ⚠️ 這裡改為讓 Google 試算表自動填入，先預設為 0
+        let prices = {
+            qty1: 0, qty2: 0, qty3: 0, qty4: 0, qty5: 0, qty6: 0
+        };
+
+        // 👇 共用同一個 Webhook URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec'; 
+
+        // 網頁一載入，就去 Google 試算表抓最新價格！
+        window.onload = function() {
+            fetch(scriptURL)
+                .then(response => response.json())
+                .then(data => {
+                    // 把試算表的資料寫進 prices 裡
+                    prices = data;
+                    
+                    // 更新畫面上顯示的金額文字
+                    document.getElementById('price-qty1').innerText = 'NT$ ' + (prices.qty1 || 0).toLocaleString();
+                    document.getElementById('price-qty2').innerText = 'NT$ ' + (prices.qty2 || 0).toLocaleString();
+                    document.getElementById('price-qty3').innerText = 'NT$ ' + (prices.qty3 || 0).toLocaleString();
+                    document.getElementById('price-qty4').innerText = 'NT$ ' + (prices.qty4 || 0).toLocaleString();
+                    document.getElementById('price-qty5').innerText = 'NT$ ' + (prices.qty5 || 0).toLocaleString();
+                    document.getElementById('price-qty6').innerText = 'NT$ ' + (prices.qty6 || 0).toLocaleString();
+                    
+                    // 重新計算下方總金額
+                    calculateTotal();
+                })
+                .catch(error => {
+                    console.error('抓取價格失敗', error);
+                    // 這裡先不跳警告，免得嚇到客人
+                });
         };
 
         // 產品數量增減邏輯
@@ -297,9 +317,6 @@
             btn.disabled = true;
             btnText.innerText = '處理中...';
             btnSpinner.classList.remove('hidden');
-
-            // 👇 ⚠️ 請把下面單引號裡面的文字，換成你剛剛複製的 Google URL ⚠️ 👇
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec'; 
 
             // 真正傳送資料到 Google
             fetch(scriptURL, {
