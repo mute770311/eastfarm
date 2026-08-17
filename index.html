@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANASKEY & 天香茶花酒 | 專屬訂購</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* 標題使用明體增添高級感，內文使用黑體 */
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Noto Serif TC', serif;
+        }
+        /* 自訂數字輸入框的樣式，隱藏上下箭頭 */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black brand-font tracking-widest text-slate-900">
+                LUXURY <span class="text-amber-600">SPIRITS</span>
+            </div>
+            <div class="text-sm font-medium text-slate-500">
+                官方線上訂購
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 text-slate-900">純粹品味，限量預購</h1>
+            <p class="text-slate-500">請選擇您欲購買的品項與數量，填妥資料後我們將有專人為您安排出貨。</p>
+        </div>
+
+        <form id="orderForm" class="space-y-10">
+            <!-- 商品選擇區 -->
+            <section>
+                <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
+                    <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                    選擇商品
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- 商品 1：HANASKEY 威士忌 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <!-- 請將下方的 src="..." 裡面的網址替換成你的 HANASKEY 威士忌圖片網址 -->
+                            <img src="把你的威士忌圖片網址貼在這裡.jpg" alt="HANASKEY 威士忌" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">HANASKEY 威士忌</h3>
+                        <p class="text-sm text-slate-500 mb-4 h-10">經過頂級橡木桶熟成，帶有深邃的麥芽香氣與圓潤口感。</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 1,200</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('whiskeyQty', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="whiskeyQty" name="whiskeyQty" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('whiskeyQty', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 2：天香茶花酒 -->
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                            <!-- 請將下方的 src="..." 裡面的網址替換成你的天香茶花酒圖片網址 -->
+                            <img src="把你的茶花酒圖片網址貼在這裡.jpg" alt="天香茶花酒" class="object-cover w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
+                        <p class="text-sm text-slate-500 mb-4 h-10">融合天然茶花萃取，清新淡雅，適合做為餐前酒或搭餐品飲。</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="font-semibold text-lg text-amber-700">NT$ 800</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button type="button" onclick="updateQty('camelliaQty', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
+                                <input type="number" id="camelliaQty" name="camelliaQty" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
+                                <button type="button" onclick="updateQty('camelliaQty', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
+                    <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                    收件人資訊
+                </h2>
+                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">姓名 <span class="text-red-500">*</span></label>
+                        <input type="text" id="customerName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：王小明">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">聯絡電話 <span class="text-red-500">*</span></label>
+                        <input type="tel" id="customerPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：0912345678">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">送貨地址 <span class="text-red-500">*</span></label>
+                        <input type="text" id="customerAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="請輸入完整收件地址">
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div>
+                        <div class="text-slate-400 text-sm mb-1">訂單總金額</div>
+                        <div class="text-3xl font-bold brand-font text-amber-400 flex items-baseline">
+                            <span class="text-lg mr-1">NT$</span>
+                            <span id="totalPrice">0</span>
+                        </div>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full md:w-auto px-10 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold transition duration-300 shadow-lg shadow-amber-600/30 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="btnText">確認送出訂單</span>
+                        <svg id="btnSpinner" class="animate-spin ml-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <div id="successModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-2 brand-font">訂購成功！</h3>
+            <p class="text-slate-500 text-center mb-6">我們已收到您的訂單資料，將會盡快與您聯繫安排出貨事宜。</p>
+            <button onclick="closeModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-medium transition">
+                關閉並返回
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const prices = {
+            whiskeyQty: 1200,
+            camelliaQty: 800
+        };
+
+        // 產品數量增減邏輯
+        function updateQty(id, change) {
+            const input = document.getElementById(id);
+            let currentVal = parseInt(input.value) || 0;
+            let newVal = currentVal + change;
+            if (newVal < 0) newVal = 0;
+            input.value = newVal;
+            calculateTotal();
+        }
+
+        // 計算總金額
+        function calculateTotal() {
+            let total = 0;
+            for (const [id, price] of Object.entries(prices)) {
+                const qty = parseInt(document.getElementById(id).value) || 0;
+                total += qty * price;
+            }
+            // 格式化數字加上千分位逗號
+            document.getElementById('totalPrice').innerText = total.toLocaleString('en-US');
+        }
+
+        // 處理表單送出
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 防止網頁重整
+
+            const whiskeyQty = parseInt(document.getElementById('whiskeyQty').value) || 0;
+            const camelliaQty = parseInt(document.getElementById('camelliaQty').value) || 0;
+
+            if (whiskeyQty === 0 && camelliaQty === 0) {
+                showModal('請至少選擇一項商品再結帳喔！', false);
+                return;
+            }
+
+            // 準備要傳送的資料
+            const orderData = {
+                name: document.getElementById('customerName').value,
+                phone: document.getElementById('customerPhone').value,
+                address: document.getElementById('customerAddress').value,
+                whiskeyQty: whiskeyQty,
+                camelliaQty: camelliaQty,
+                totalAmount: parseInt(document.getElementById('totalPrice').innerText.replace(/,/g, ''))
+            };
+
+            submitToGoogleSheet(orderData);
+        });
+
+        // 傳送資料到 Google Apps Script (Webhook)
+        function submitToGoogleSheet(data) {
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            // 顯示載入中動畫
+            btn.disabled = true;
+            btnText.innerText = '處理中...';
+            btnSpinner.classList.remove('hidden');
+
+            /* 
+             * ⚠️ 這裡的 URL 要換成你用 Google Apps Script 發布的「網頁應用程式 URL」
+             * 稍後我會教你怎麼取得這串網址
+             */
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; 
+
+            // 因為安全限制，我們這裡目前先模擬送出成功的動畫
+            // 當你設定好 GAS 後，請把這段 setTimeout 替換為下方的 fetch 程式碼
+            
+            setTimeout(() => {
+                // 恢復按鈕狀態
+                btn.disabled = false;
+                btnText.innerText = '確認送出訂單';
+                btnSpinner.classList.add('hidden');
+                
+                // 清空表單
+                document.getElementById('orderForm').reset();
+                calculateTotal();
+
+                // 顯示成功視窗
+                showModal('訂購成功！', true);
+            }, 1500);
+
+            /* --- 真正要串接時，請解除下方的註解，並刪除上面的 setTimeout ---
+            fetch(scriptURL, {
+                method: 'POST',
+                // 使用 form-urlencoded 格式避開 CORS 問題
+                body: new URLSearchParams(data)
+            })
+            .then(response => {
+                btn.disabled = false;
+                btnText.innerText = '確認送出訂單';
+                btnSpinner.classList.add('hidden');
+                
+                if(response.ok) {
+                    document.getElementById('orderForm').reset();
+                    calculateTotal();
+                    showModal('訂購成功！', true);
+                } else {
+                    showModal('發生錯誤，請稍後再試。', false);
+                }
+            })
+            .catch(error => {
+                btn.disabled = false;
+                btnText.innerText = '確認送出訂單';
+                btnSpinner.classList.add('hidden');
+                showModal('網路連線異常，請稍後再試。', false);
+            });
+            ------------------------------------------------------------- */
+        }
+
+        // 控制 Modal 顯示
+        function showModal(message, isSuccess) {
+            const modal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            // 如果失敗，可以替換 icon 和文字，這裡先簡單共用版型
+            if(!isSuccess) {
+                modalContent.querySelector('h3').innerText = '提醒';
+                modalContent.querySelector('p').innerText = message;
+                modalContent.querySelector('.bg-green-100').className = 'w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-4';
+                modalContent.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>';
+            }
+
+            modal.classList.remove('hidden');
+            // 延遲一點點加 opacity 才能觸發 CSS transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // 恢復綠色打勾樣式（以防被錯誤狀態改掉）
+                modalContent.querySelector('.bg-amber-100')?.setAttribute('class', 'w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4');
+                modalContent.querySelector('h3').innerText = '訂購成功！';
+                modalContent.querySelector('p').innerText = '我們已收到您的訂單資料，將會盡快與您聯繫安排出貨事宜。';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
