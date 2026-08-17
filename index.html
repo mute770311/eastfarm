@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- 新增 class="scroll-smooth" 讓網頁有滑動動畫 -->
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -9,14 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            /* 標題使用明體增添高級感，內文使用黑體 */
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
         h1, h2, h3, .brand-font {
             font-family: 'Noto Serif TC', serif;
         }
-        /* 自訂數字輸入框的樣式，隱藏上下箭頭 */
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
             -webkit-appearance: none; 
@@ -27,13 +24,10 @@
 <body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900">
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
-        <!-- 調整為 flex-col sm:flex-row 讓手機版選單可以自動換行 -->
-        <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="text-2xl font-black brand-font tracking-widest text-slate-900">
                 LUXURY <span class="text-amber-600">SPIRITS</span>
             </div>
-            
-            <!-- 新增：導覽列選單 -->
             <nav class="flex space-x-6 text-sm font-bold text-slate-600">
                 <a href="#home" class="hover:text-amber-600 transition">首頁</a>
                 <a href="#products" class="hover:text-amber-600 transition">購買產品</a>
@@ -42,123 +36,213 @@
         </div>
     </header>
 
-    <!-- 新增 id="home" 作為首頁錨點 -->
-    <main id="home" class="max-w-4xl mx-auto px-6 py-12 scroll-mt-24">
+    <main id="home" class="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
+        
+        <section class="mb-24">
+            <div class="text-center mb-16">
+                <div class="text-amber-600 font-semibold tracking-wider text-sm mb-3 uppercase">Brand Story</div>
+                <h2 class="text-4xl font-bold brand-font text-slate-900">探索 Hanaskey 的醇厚奧秘</h2>
+            </div>
+
+            <!-- 無邊框、往下捲動的圖文交錯排版 -->
+            <div class="flex flex-col space-y-24">
+                
+                <!-- 故事 1：左圖右文 -->
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <img src="story1.jpg" alt="企業初心" class="w-full h-auto object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-8">
+                        <h3 class="text-3xl font-bold brand-font mb-4 text-slate-900">企業初心</h3>
+                        <p class="text-slate-600 leading-loose text-lg">
+                            「花那麼美，怎麼開完就落地了？這麼漂亮的花，應該有更高的價值。」
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 故事 2：左文右圖 (flex-row-reverse 交錯) -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <img src="story22.jpg" alt="茶花的栽培與堅持" class="w-full h-auto object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-8">
+                        <h3 class="text-3xl font-bold brand-font mb-4 text-slate-900">茶花的栽培與堅持</h3>
+                        <p class="text-slate-600 leading-loose text-lg">
+                            每一朵「天香茶花」都是手工採摘，清晨採花、低溫乾燥，只為保留最原始的香氣與活性成分。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 故事 3：左圖右文 -->
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <img src="story33.jpg" alt="友善耕作" class="w-full h-auto object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-8">
+                        <h3 class="text-3xl font-bold brand-font mb-4 text-slate-900">友善耕作</h3>
+                        <p class="text-slate-600 leading-loose text-lg">
+                            我們選擇以完全無農藥、友善耕作的方式種植，人工除草、除藤，這些看似不起眼的細節，是我們對土地尊重的具體展現。，因為我相信——如果茶花最終是要進到人體的飲品中，就不能有一絲妥協。 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 故事 4：左文右圖 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <img src="story4.jpg" alt="當日採摘冷鏈直送" class="w-full h-auto object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-8">
+                        <h3 class="text-3xl font-bold brand-font mb-4 text-slate-900">當天採摘冷鏈直送</h3>
+                        <p class="text-slate-600 leading-loose text-lg">
+                            冷藏運送酒廠、新鮮送達並立即處理，進入固香作業，長達三周。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 故事 5：左圖右文 -->
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <img src="story5.jpg" alt="屢獲國際肯定" class="w-full h-auto object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-8">
+                        <h3 class="text-3xl font-bold brand-font mb-4 text-slate-900">屢獲國際肯定</h3>
+                        <p class="text-slate-600 leading-loose text-lg">
+                            品質深受國內外評審青睞，多次於國際烈酒競賽中獲得殊榮，品質有目共睹。這不僅是榮耀，更是對我們工藝的最高肯定。
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold mb-4 text-slate-900">純粹品味，限量預購</h1>
             <p class="text-slate-500">請選擇您欲購買的品項與數量，填妥資料後我們將有專人為您安排出貨。</p>
         </div>
 
         <form id="orderForm" class="space-y-10">
-            <!-- 1. 商品選擇區 -->
-            <!-- 新增 id="products" 作為產品錨點，並設定 scroll-mt-24 避免被上方選單擋住 -->
             <section id="products" class="scroll-mt-24">
-                <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
+                <h2 class="text-xl font-semibold mb-8 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
                     選擇商品
                 </h2>
-                <!-- 電腦版三欄，平板兩欄，手機一欄 -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 恢復為 Grid 卡片排版，一排 2 或 3 個 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- 商品 1 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <!-- 修改 src 內的檔名即可更換圖片，object-contain 確保圖片完整不裁切 -->
-                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <!-- object-contain 保證圖片不被裁切 -->
+                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
-                        <p class="text-sm text-slate-500 mb-4">700mL (42%)</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty1" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty1" name="qty1" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty1', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀</h3>
+                            <p class="text-slate-500 text-sm mb-4">700mL (42%)</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty1" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty1" name="qty1" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty1', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- 商品 2 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花酒</h3>
-                        <p class="text-sm text-slate-500 mb-4">600mL (53.1%)</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty2" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty2" name="qty2" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty2', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花酒</h3>
+                            <p class="text-slate-500 text-sm mb-4">600mL (53.1%)</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty2" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty2" name="qty2" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty2', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- 商品 3 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲</h3>
-                        <p class="text-sm text-slate-500 mb-4">(8入)</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty3" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty3" name="qty3" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty3', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲</h3>
+                            <p class="text-slate-500 text-sm mb-4">(8入)</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty3" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty3" name="qty3" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty3', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- 商品 4 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花飲禮盒</h3>
-                        <p class="text-sm text-slate-500 mb-4">(8入*2)</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty4" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty4" name="qty4" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty4', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲禮盒</h3>
+                            <p class="text-slate-500 text-sm mb-4">(8入*2)</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty4" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty4" name="qty4" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty4', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- 商品 5 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">天香茶花雙享禮盒</h3>
-                        <p class="text-sm text-slate-500 mb-4">精選雙享搭配</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty5" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty5" name="qty5" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty5', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花雙享禮盒</h3>
+                            <p class="text-slate-500 text-sm mb-4">精選雙享搭配</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty5" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty5" name="qty5" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty5', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- 商品 6 -->
-                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative flex items-center justify-center">
-                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-slate-50 relative">
+                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full p-2">
                         </div>
-                        <h3 class="text-lg font-bold brand-font mb-1">Hanaskey茶世紀</h3>
-                        <p class="text-sm text-slate-500 mb-4">伴手禮盒 (250mL)</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div id="price-qty6" class="font-semibold text-lg text-amber-700">載入中...</div>
-                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                                <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">-</button>
-                                <input type="number" id="qty6" name="qty6" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-white font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty6', 1)" class="px-3 py-1 bg-slate-50 hover:bg-slate-100 transition text-slate-600">+</button>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀</h3>
+                            <p class="text-slate-500 text-sm mb-4">伴手禮盒 (250mL)</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-4 border-t border-slate-50">
+                            <div id="price-qty6" class="font-bold text-lg text-amber-700">載入中...</div>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">-</button>
+                                <input type="number" id="qty6" name="qty6" value="0" min="0" class="w-12 text-center py-1 focus:outline-none bg-transparent font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty6', 1)" class="px-3 py-1 hover:bg-slate-50 transition text-slate-600">+</button>
                             </div>
                         </div>
                     </div>
@@ -166,7 +250,6 @@
                 </div>
             </section>
 
-            <!-- 2. 收件人資訊區 -->
             <section>
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
@@ -175,33 +258,27 @@
                 <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">姓名 <span class="text-red-500">*</span></label>
-                        <!-- required 代表必填 -->
                         <input type="text" id="customerName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：王小明">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">聯絡電話 <span class="text-red-500">*</span></label>
-                        <!-- required 代表必填 -->
                         <input type="tel" id="customerPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：0912345678">
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-slate-700 mb-2">送貨地址 <span class="text-red-500">*</span></label>
-                        <!-- required 代表必填 -->
                         <input type="text" id="customerAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="請輸入完整收件地址">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">發票抬頭 <span class="text-slate-400 text-xs font-normal">(選填)</span></label>
-                        <!-- 沒有 required 代表選填 -->
                         <input type="text" id="companyName" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="若需統編請填寫公司名稱">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">統一編號 <span class="text-slate-400 text-xs font-normal">(選填)</span></label>
-                        <!-- 沒有 required 代表選填 -->
                         <input type="text" id="taxId" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition" placeholder="例如：12345678">
                     </div>
                 </div>
             </section>
 
-            <!-- 新增：3. 轉帳資訊區 (作為第三個按鈕的錨點) -->
             <section id="payment" class="scroll-mt-24">
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
@@ -210,31 +287,26 @@
                 <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100 text-amber-900">
                     <p class="mb-4 text-sm leading-relaxed">請在送出訂單後，將總金額匯款至以下指定帳戶。我們核對款項無誤後，將立即為您安排出貨。</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-medium">
-                        <div class="bg-white/80 p-4 rounded-xl">
+                        <div class="bg-white/80 p-4 rounded-xl shadow-sm">
                             <div class="text-amber-700/70 text-xs mb-1">銀行名稱</div>
-                            <!-- 請在此修改您的真實銀行 -->
-                            <div class="text-lg">聯邦商業銀行 (代碼: 803)</div>
+                            <div class="text-lg">中國信託 (822)</div>
                         </div>
-                        <div class="bg-white/80 p-4 rounded-xl">
+                        <div class="bg-white/80 p-4 rounded-xl shadow-sm">
                             <div class="text-amber-700/70 text-xs mb-1">分行名稱</div>
-                            <!-- 請在此修改您的分行 -->
-                            <div class="text-lg">大業分行(0870)</div>
+                            <div class="text-lg">市政分行</div>
                         </div>
-                        <div class="bg-white/80 p-4 rounded-xl sm:col-span-2">
+                        <div class="bg-white/80 p-4 rounded-xl sm:col-span-2 shadow-sm">
                             <div class="text-amber-700/70 text-xs mb-1">匯款帳號</div>
-                            <!-- 請在此修改您的帳號 -->
-                            <div class="text-xl tracking-wider font-mono">087-10-6002889</div>
+                            <div class="text-2xl tracking-wider font-mono">1234-5678-9012-3456</div>
                         </div>
-                        <div class="bg-white/80 p-4 rounded-xl sm:col-span-2">
+                        <div class="bg-white/80 p-4 rounded-xl sm:col-span-2 shadow-sm">
                             <div class="text-amber-700/70 text-xs mb-1">戶名</div>
-                            <!-- 請在此修改戶名 -->
-                            <div class="text-lg">東鄉事業股份有限公司</div>
+                            <div class="text-lg">天香酒業股份有限公司</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 結帳區 -->
             <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
@@ -256,13 +328,11 @@
         </form>
     </main>
 
-    <!-- 彈出視窗 Modal -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
             <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-            <!-- 自訂的成功訊息 -->
             <h3 class="text-2xl font-bold text-center mb-2 brand-font">恭喜您成功送出訂單</h3>
             <p class="text-slate-500 text-center mb-6">後續會有專人聯絡與服務您</p>
             <button onclick="closeModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-medium transition">
@@ -271,10 +341,9 @@
         </div>
     </div>
 
-    <!-- 程式邏輯區塊 -->
     <script>
-        // 1. 商品售價（未來改價格請直接修改這裡的數字，請勿輸入逗號）
-        let prices = {
+        // 價格設定區 (修改價格在這裡)
+        const prices = {
             qty1: 3800, // Hanaskey茶世紀700mL
             qty2: 4800, // 天香茶花酒600mL
             qty3: 600,  // 天香茶花飲
@@ -283,10 +352,9 @@
             qty6: 1280  // Hanaskey茶世紀伴手禮盒
         };
 
-        // 2. 你的 Google Apps Script 網址
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec'; 
 
-        // 3. 更新畫面上顯示的金額文字
+        // 更新價格顯示
         function updatePriceDisplay() {
             document.getElementById('price-qty1').innerText = 'NT$ ' + prices.qty1.toLocaleString();
             document.getElementById('price-qty2').innerText = 'NT$ ' + prices.qty2.toLocaleString();
@@ -297,12 +365,11 @@
             calculateTotal();
         }
 
-        // 網頁一載入，立即顯示價格（秒開不卡頓）
         window.onload = function() {
             updatePriceDisplay();
         };
 
-        // 4. 產品數量增減邏輯
+        // 增減數量
         function updateQty(id, change) {
             const input = document.getElementById(id);
             let currentVal = parseInt(input.value) || 0;
@@ -312,7 +379,7 @@
             calculateTotal();
         }
 
-        // 5. 計算總金額
+        // 計算總金額
         function calculateTotal() {
             let total = 0;
             for (const [id, price] of Object.entries(prices)) {
@@ -322,11 +389,20 @@
             document.getElementById('totalPrice').innerText = total.toLocaleString('en-US');
         }
 
-        // 6. 處理表單送出
+        // 處理表單送出
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // 防止網頁重整
+            e.preventDefault(); 
 
-            // 抓取 6 個商品的數量
+            // 在送出前再次手動檢查必填欄位 (雖然有原生的 required，但加這層更保險)
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            
+            if (!name || !phone || !address) {
+                showModal('請確保姓名、電話與地址皆已填寫喔！', false);
+                return;
+            }
+
             const qty1 = parseInt(document.getElementById('qty1').value) || 0;
             const qty2 = parseInt(document.getElementById('qty2').value) || 0;
             const qty3 = parseInt(document.getElementById('qty3').value) || 0;
@@ -334,17 +410,15 @@
             const qty5 = parseInt(document.getElementById('qty5').value) || 0;
             const qty6 = parseInt(document.getElementById('qty6').value) || 0;
 
-            // 確保客房至少有買一樣
             if (qty1 === 0 && qty2 === 0 && qty3 === 0 && qty4 === 0 && qty5 === 0 && qty6 === 0) {
                 showModal('請至少選擇一項商品再結帳喔！', false);
                 return;
             }
 
-            // 準備要傳送的資料
             const orderData = {
-                name: document.getElementById('customerName').value,
-                phone: document.getElementById('customerPhone').value,
-                address: document.getElementById('customerAddress').value,
+                name: name,
+                phone: phone,
+                address: address,
                 companyName: document.getElementById('companyName').value,
                 taxId: document.getElementById('taxId').value,
                 qty1: qty1,
@@ -359,7 +433,7 @@
             submitToGoogleSheet(orderData);
         });
 
-        // 7. 傳送資料到 Google
+        // 傳送資料
         function submitToGoogleSheet(data) {
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -371,7 +445,7 @@
 
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // 避開安全阻擋
+                mode: 'no-cors',
                 body: new URLSearchParams(data)
             })
             .then(response => {
@@ -379,7 +453,6 @@
                 btnText.innerText = '確認送出訂單';
                 btnSpinner.classList.add('hidden');
                 
-                // 因為 no-cors，不報錯即視為成功
                 document.getElementById('orderForm').reset();
                 calculateTotal();
                 showModal('恭喜您成功送出訂單', true);
@@ -392,7 +465,7 @@
             });
         }
 
-        // 8. 顯示彈出視窗
+        // Modal 控制
         function showModal(message, isSuccess) {
             const modal = document.getElementById('successModal');
             const modalContent = document.getElementById('modalContent');
@@ -411,7 +484,6 @@
             }, 10);
         }
 
-        // 9. 關閉視窗
         function closeModal() {
             const modal = document.getElementById('successModal');
             const modalContent = document.getElementById('modalContent');
@@ -421,7 +493,6 @@
             
             setTimeout(() => {
                 modal.classList.add('hidden');
-                // 恢復綠色打勾與客製化文字
                 modalContent.querySelector('.bg-amber-100')?.setAttribute('class', 'w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4');
                 modalContent.querySelector('h3').innerText = '恭喜您成功送出訂單';
                 modalContent.querySelector('p').innerText = '後續會有專人聯絡與服務您';
