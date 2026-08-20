@@ -39,7 +39,7 @@
                 東鄉事業 <span class="text-amber-600">天香茶花</span>
             </a>
             <nav class="flex space-x-6 text-sm font-bold text-slate-600">
-                <a href="#home" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">首頁 (5 Stories)</a>
+                <a href="#home" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">首頁</a>
                 <a href="#products" class="hover:text-amber-600 transition">預購商品</a>
                 <a href="#previewCanvas" class="hover:text-amber-600 transition">互動預覽</a>
                 <a href="#contact" class="hover:text-amber-600 transition">聯絡我們</a>
@@ -74,7 +74,6 @@
                     <img src="story1.jpg" onerror="this.src='https://placehold.co/600x450/fef3c7/b45309?text=Story+1'" alt="企業初心" class="w-full h-auto object-cover rounded-2xl shadow-md">
                 </div>
                 <div class="w-full md:w-1/2 md:px-6">
-                    <span class="text-amber-600 font-bold text-sm">CHAPTER 01</span>
                     <h3 class="text-2xl font-bold brand-font mb-4 text-slate-900">企業初心</h3>
                     <p class="text-slate-600 leading-relaxed text-lg">「花那麼美，怎麼開完就落地了？這麼漂亮的花，應該有更高的價值。」</p>
                 </div>
@@ -86,7 +85,6 @@
                     <img src="採花照片.jpg" onerror="this.src='https://placehold.co/600x450/fef3c7/b45309?text=Story+2'" alt="茶花的栽培與堅持" class="w-full h-auto object-cover rounded-2xl shadow-md">
                 </div>
                 <div class="w-full md:w-1/2 md:px-6">
-                    <span class="text-amber-600 font-bold text-sm">CHAPTER 02</span>
                     <h3 class="text-2xl font-bold brand-font mb-4 text-slate-900">茶花的栽培與堅持</h3>
                     <p class="text-slate-600 leading-relaxed text-lg">每一朵「天香茶花」都是手工採摘，清晨採花、低溫乾燥，只為保留最原始的香氣與活性成分。</p>
                 </div>
@@ -98,7 +96,6 @@
                     <img src="story33.jpg" onerror="this.src='https://placehold.co/600x450/fef3c7/b45309?text=Story+3'" alt="友善耕作" class="w-full h-auto object-cover rounded-2xl shadow-md">
                 </div>
                 <div class="w-full md:w-1/2 md:px-6">
-                    <span class="text-amber-600 font-bold text-sm">CHAPTER 03</span>
                     <h3 class="text-2xl font-bold brand-font mb-4 text-slate-900">友善耕作</h3>
                     <p class="text-slate-600 leading-relaxed text-lg">我們選擇以完全無農藥、友善耕作的方式種植，人工除草、除藤，這些看似不起眼的細節，是我們對土地尊重的具體展現。</p>
                 </div>
@@ -110,7 +107,6 @@
                     <img src="story4.jpg" onerror="this.src='https://placehold.co/600x450/fef3c7/b45309?text=Story+4'" alt="工藝與時間的淬鍊" class="w-full h-auto object-cover rounded-2xl shadow-md">
                 </div>
                 <div class="w-full md:w-1/2 md:px-6">
-                    <span class="text-amber-600 font-bold text-sm">CHAPTER 04</span>
                     <h3 class="text-2xl font-bold brand-font mb-4 text-slate-900">工藝與時間的淬鍊</h3>
                     <p class="text-slate-600 leading-relaxed text-lg">結合頂級釀造工藝與長時間的風味沉澱，將茶花的獨特底蘊完美揉合於酒體之中，創造出層次深邃、餘韻悠長的珍稀佳釀。</p>
                 </div>
@@ -122,7 +118,6 @@
                     <img src="story5.jpg" onerror="this.src='https://placehold.co/600x450/fef3c7/b45309?text=Story+5'" alt="永續與品味承諾" class="w-full h-auto object-cover rounded-2xl shadow-md">
                 </div>
                 <div class="w-full md:w-1/2 md:px-6">
-                    <span class="text-amber-600 font-bold text-sm">CHAPTER 05</span>
                     <h3 class="text-2xl font-bold brand-font mb-4 text-slate-900">永續與品味承諾</h3>
                     <p class="text-slate-600 leading-relaxed text-lg">我們不僅追求極致的風味表現，更秉持對土地的永續承諾，將每一份自然恩賜轉化為陪伴您品味生活美好時刻的頂級體驗。</p>
                 </div>
@@ -255,7 +250,6 @@
 
         function handleOrderSubmit(e) {
             e.preventDefault();
-            // 自訂訊息框替代 alert()
             let msgBox = document.createElement('div');
             msgBox.innerHTML = `<div class="fixed inset-0 bg-black/80 z-[400] flex items-center justify-center p-4"><div class="bg-white p-8 rounded-2xl max-w-sm text-center shadow-xl"><div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">✓</div><h3 class="text-xl font-bold mb-2">模擬預購送出成功！</h3><p class="text-slate-500 mb-6 text-sm">此為預覽畫面，實際將同步至 Google 試算表。</p><button onclick="this.closest('.fixed').remove()" class="w-full py-3 bg-slate-900 text-white rounded-xl font-medium">關閉</button></div></div>`;
             document.body.appendChild(msgBox);
@@ -268,7 +262,6 @@
         let currentTheme = 'amber';
         let particles = [];
 
-        // 初始化粒子
         for(let i=0; i<50; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
@@ -279,19 +272,17 @@
         }
 
         function drawCanvas() {
-            // 背景漸層
             let grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             if(currentTheme === 'amber') {
                 grad.addColorStop(0, '#1c1917');
-                grad.addColorStop(1, '#451a03'); // 更深的琥珀色
+                grad.addColorStop(1, '#451a03');
             } else {
                 grad.addColorStop(0, '#022c22');
-                grad.addColorStop(1, '#064e3b'); // 深翠綠
+                grad.addColorStop(1, '#064e3b');
             }
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 繪製粒子
             ctx.fillStyle = currentTheme === 'amber' ? 'rgba(251, 191, 36, 0.5)' : 'rgba(52, 211, 153, 0.5)';
             particles.forEach(p => {
                 ctx.beginPath();
@@ -301,7 +292,6 @@
                 if(p.y < 0) p.y = canvas.height;
             });
 
-            // 中心旋轉光環
             ctx.save();
             ctx.translate(canvas.width / 2, canvas.height / 2);
             ctx.rotate(angle);
@@ -309,7 +299,6 @@
             ctx.lineWidth = 2;
             ctx.beginPath();
             
-            // 繪製類似花瓣的形狀
             for (let i = 0; i < 8; i++) {
                 ctx.rotate(Math.PI / 4);
                 ctx.moveTo(0, 0);
@@ -319,7 +308,6 @@
             ctx.stroke();
             ctx.restore();
 
-            // 品牌文字
             ctx.fillStyle = '#ffffff';
             ctx.font = 'bold 36px "Noto Serif TC", serif';
             ctx.textAlign = 'center';
@@ -337,7 +325,6 @@
             currentTheme = theme;
         }
 
-        // 確保視窗載入後開始動畫
         window.onload = function() {
             drawCanvas();
         };
