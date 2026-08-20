@@ -357,7 +357,8 @@
                             </div>
                         </div>
                         <div class="mt-6 pt-6 border-t border-slate-200 text-sm text-slate-600 space-y-2">
-                            <p class="font-semibold text-slate-900">📦 運費計算規則：</p>
+                            <p class="font-semibold text-slate-900">📦 運費計算與交易說明：</p>
+                            <p>• 本網站所有商品交易金額均以 <span class="font-bold text-slate-900">新台幣 (TWD)</span> 計價。</p>
                             <p>• 單筆訂單總額達 <span class="text-amber-700 font-bold">NT$ 1,500</span> 者，享有免運費優惠。</p>
                             <p>• 未達 NT$ 1,500 者，酌收常溫/冷鏈運費 NT$ 150。</p>
                             <p class="text-red-500 font-medium pt-2">* 提醒您：送出預購訂單後，請於 3 日內完成匯款，並透過 LINE 或來電告知對帳，我們將有專人為您安排出貨。</p>
@@ -425,11 +426,28 @@
                 </div>
             </section>
 
-            <!-- 結帳 Bar -->
-            <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <!-- 法規合規條款同意與結帳 Bar -->
+            <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl space-y-6">
+                <!-- 酒類法規與合規免責提示 -->
+                <div class="bg-slate-800/80 p-4 rounded-xl text-xs text-slate-300 border border-slate-700 space-y-2">
+                    <p class="text-amber-400 font-bold">⚠️ 依《菸酒管理法》規定與金流審查說明：</p>
+                    <p>本網站酒類商品僅提供預購意願登記與詢價，送出訂單後將由客服專人與您聯繫確認購買人年齡與身份，方可安排後續對帳與出貨事宜，本站絕不向未滿 18 歲者銷售酒類產品。</p>
+                </div>
+
+                <!-- 同意條款勾選框 (銀行金流必備) -->
+                <div class="flex items-start space-x-3">
+                    <input type="checkbox" id="termsAgreement" required class="mt-1 w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-slate-700 bg-slate-800 cursor-pointer">
+                    <label for="termsAgreement" class="text-xs sm:text-sm text-slate-300 leading-relaxed cursor-pointer">
+                        我已年滿 18 歲，且已閱讀並同意東鄉事業之
+                        <button type="button" onclick="openLegalModal('termsModal')" class="text-amber-400 hover:underline font-semibold">《服務條款與退換貨政策》</button> 
+                        及 
+                        <button type="button" onclick="openLegalModal('privacyModal')" class="text-amber-400 hover:underline font-semibold">《隱私權保護政策》</button>。
+                    </label>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-2 border-t border-slate-800">
                     <div>
-                        <div class="text-slate-400 text-sm mb-1">訂單總金額 (含運費試算)</div>
+                        <div class="text-slate-400 text-sm mb-1">訂單總金額 (台幣 TWD)</div>
                         <div class="text-3xl font-bold brand-font text-amber-400 flex items-baseline">
                             <span class="text-lg mr-1">NT$</span>
                             <span id="totalPrice">0</span>
@@ -447,24 +465,69 @@
             </section>
         </form>
 
-        <!-- 官方酒類法規警語 Footer -->
-        <footer class="mt-20 pt-8 border-t border-slate-200 text-center text-xs text-slate-400 space-y-2">
-            <p class="font-bold text-slate-600 text-sm">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
-            <p>© 東鄉事業股份有限公司 版權所有 All Rights Reserved.</p>
+        <!-- 官方酒類法規警語與商業登記 Footer (銀行審查專用) -->
+        <footer class="mt-20 pt-8 border-t border-slate-200 text-center text-xs text-slate-500 space-y-3">
+            <p class="font-bold text-red-600 text-sm sm:text-base">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
+            <div class="flex flex-wrap justify-center gap-4 text-slate-600 pt-2">
+                <span>東鄉事業股份有限公司</span>
+                <span>|</span>
+                <span>統一編號：83048466</span>
+                <span>|</span>
+                <span>交易幣別：新台幣 (TWD)</span>
+            </div>
+            <div class="flex justify-center space-x-4 pt-1 text-slate-400">
+                <button onclick="openLegalModal('termsModal')" class="hover:text-amber-700 transition">服務條款與退換貨政策</button>
+                <span>‧</span>
+                <button onclick="openLegalModal('privacyModal')" class="hover:text-amber-700 transition">隱私權保護政策</button>
+            </div>
+            <p class="text-slate-400 pt-2">© 東鄉事業股份有限公司 版權所有 All Rights Reserved.</p>
         </footer>
     </main>
 
-    <!-- 彈出視窗 -->
+    <!-- 成功訂購彈窗 -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
             <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-center mb-2 brand-font">恭喜您成功送出訂單</h3>
-            <p class="text-slate-500 text-center mb-6">請於3日內完成匯款，並來電告知 (03) 511-0098 以利對帳出貨！</p>
+            <p class="text-slate-500 text-center mb-6">請於3日內完成匯款，並來電告知 (03) 511-0098 以利專人為您對帳與出貨！</p>
             <button onclick="closeModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-medium transition">
                 關閉並返回
             </button>
+        </div>
+    </div>
+
+    <!-- 隱私權政策 Modal (銀行審查必備) -->
+    <div id="privacyModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
+            <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">隱私權保護政策</h3>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <p>東鄉事業股份有限公司（以下簡稱「本公司」）非常重視您的個人隱私。為維護您的個人資料安全，特制定本隱私權政策，說明我們如何收集、處理及利用您的個人資訊：</p>
+                <h4 class="font-bold text-slate-900">一、 個人資料之收集目的與類別</h4>
+                <p>當您在本網站進行預購商品登記時，我們將收集您填寫的個人資料，包括：姓名、聯絡電話、送貨地址、電子郵件以及發票抬頭/統編。收集目的包含訂單處理、客戶服務、身分與年齡確認（依酒類法規）及寄送商品。</p>
+                <h4 class="font-bold text-slate-900">二、 資料利用之期間與對象</h4>
+                <p>您的個人資料僅會由本公司及必要之第三方物流配送夥伴在經營業務所需之範圍與期間內使用。我們承諾絕不會將您的資料出售、出租或交換予任何無關之第三方。</p>
+                <h4 class="font-bold text-slate-900">三、 資料安全保護</h4>
+                <p>本公司採用符合安全標準之網路傳輸加密機制與資料庫防護措施，確保您的個資不致洩漏或遭到未授權存取。</p>
+            </div>
+            <button onclick="closeLegalModal('privacyModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
+        </div>
+    </div>
+
+    <!-- 服務條款與退換貨政策 Modal (銀行審查必備) -->
+    <div id="termsModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
+            <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">服務條款與退換貨政策</h3>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <h4 class="font-bold text-slate-900">一、 酒類交易規範與預購說明</h4>
+                <p>依據《菸酒管理法》規定，本網站酒類商品僅提供預購登記與詢價。送出預購訂單後，將由客服專人與您聯繫，確認購買人已年滿 18 歲，方可進入正式交易流程與安排配送。</p>
+                <h4 class="font-bold text-slate-900">二、 7 天鑑賞期與退換貨說明</h4>
+                <p>1. 依《消費者保護法》規定，消費者享有商品到貨後 7 天猶豫期（鑑賞期）之權益。猶豫期並非試用期，退回之商品必須維持全新狀態且包裝完整。</p>
+                <p>2. 食品及酒類商品一經拆封（如瓶蓋密封破損、封條撕毀等），因衛生及食品安全考量，除商品本身瑕疵外，恕不接受退換貨。</p>
+                <p>3. 若您收到之商品有破損、滲漏或品質異常，請於收到商品 48 小時內拍攝照片並聯繫客服專線 (03) 511-0098，我們將儘速為您辦理免費補寄或退款。</p>
+            </div>
+            <button onclick="closeLegalModal('termsModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
         </div>
     </div>
 
@@ -555,6 +618,13 @@
         // 處理表單送出
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
+
+            // 檢查條款同意勾選框
+            const termsAgreement = document.getElementById('termsAgreement');
+            if (!termsAgreement.checked) {
+                showModal('請勾選同意條款與隱私權政策再送出訂單喔！', false);
+                return;
+            }
 
             const name = document.getElementById('customerName').value.trim();
             const phone = document.getElementById('customerPhone').value.trim();
@@ -655,8 +725,17 @@
                 modal.classList.add('hidden');
                 modalContent.querySelector('.bg-amber-100')?.setAttribute('class', 'w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4');
                 modalContent.querySelector('h3').innerText = '恭喜您成功送出訂單';
-                modalContent.querySelector('p').innerText = '請於3日內完成匯款，並來電告知 (03) 511-0098 以利對帳出貨！';
+                modalContent.querySelector('p').innerText = '請於3日內完成匯款，並來電告知 (03) 511-0098 以利專人為您對帳與出貨！';
             }, 300);
+        }
+
+        // 開啟/關閉條款 Modal
+        function openLegalModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeLegalModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
         }
 
         function openLightbox(src) {
