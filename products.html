@@ -33,11 +33,11 @@
 
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
         <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <a href="newindex.html" class="text-2xl font-black brand-font tracking-widest text-slate-900">
+            <a href="index.html" class="text-2xl font-black brand-font tracking-widest text-slate-900">
                 東鄉事業 <span class="text-amber-600">天香茶花</span>
             </a>
             <nav class="flex space-x-6 text-sm font-bold text-slate-600">
-                <a href="newindex.html" class="hover:text-amber-600 transition">首頁</a>
+                <a href="index.html" class="hover:text-amber-600 transition">首頁</a>
                 <a href="products.html" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">預購商品</a>
                 <a href="payment.html" class="hover:text-amber-600 transition">匯款與運費</a>
                 <a href="contact.html" class="hover:text-amber-600 transition">聯絡我們</a>
@@ -352,17 +352,30 @@
             const address = document.getElementById('customerAddress').value.trim();
             if (!name || !phone || !address) { alert('請填妥姓名、電話與送貨地址！'); return; }
 
+            // 檢查是否至少選擇一項商品數量
+            const qty1 = parseInt(document.getElementById('qty1').value) || 0;
+            const qty2 = parseInt(document.getElementById('qty2').value) || 0;
+            const qty3 = parseInt(document.getElementById('qty3').value) || 0;
+            const qty4 = parseInt(document.getElementById('qty4').value) || 0;
+            const qty5 = parseInt(document.getElementById('qty5').value) || 0;
+            const qty6 = parseInt(document.getElementById('qty6').value) || 0;
+
+            if (qty1 + qty2 + qty3 + qty4 + qty5 + qty6 === 0) {
+                alert('請至少選擇一項商品數量再送出預購訂單喔！');
+                return;
+            }
+
             const orderData = {
                 name, phone, address,
                 email: document.getElementById('customerEmail').value.trim(),
                 companyName: document.getElementById('companyName').value,
                 taxId: document.getElementById('taxId').value,
-                qty1: parseInt(document.getElementById('qty1').value) || 0,
-                qty2: parseInt(document.getElementById('qty2').value) || 0,
-                qty3: parseInt(document.getElementById('qty3').value) || 0,
-                qty4: parseInt(document.getElementById('qty4').value) || 0,
-                qty5: parseInt(document.getElementById('qty5').value) || 0,
-                qty6: parseInt(document.getElementById('qty6').value) || 0,
+                qty1: qty1,
+                qty2: qty2,
+                qty3: qty3,
+                qty4: qty4,
+                qty5: qty5,
+                qty6: qty6,
                 totalAmount: parseInt(document.getElementById('totalPrice').innerText.replace(/,/g, ''))
             };
 
