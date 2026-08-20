@@ -14,7 +14,6 @@
 </head>
 <body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900 flex flex-col min-h-screen">
 
-    <!-- 18歲年齡驗證彈窗 (符合酒類法規) -->
     <div id="ageModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[300] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-slate-100">
             <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold">18</div>
@@ -56,7 +55,6 @@
         </div>
 
         <form id="orderForm" class="space-y-10">
-            <!-- 1. 選擇商品區 -->
             <section>
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
@@ -67,7 +65,7 @@
                     <!-- 商品 1 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('1.jpg')">
-                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full p-2">
+                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=Hanaskey+700mL'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀</h3>
@@ -89,7 +87,7 @@
                     <!-- 商品 2 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('2.jpg')">
-                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full p-2">
+                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=天香茶花酒+600mL'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花酒</h3>
@@ -111,7 +109,7 @@
                     <!-- 商品 3 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('3.jpg')">
-                            <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full p-2">
+                            <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=天香茶花飲+8入'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲</h3>
@@ -133,7 +131,7 @@
                     <!-- 商品 4 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('4.jpg')">
-                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full p-2">
+                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=天香茶花飲禮盒'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲禮盒</h3>
@@ -155,7 +153,7 @@
                     <!-- 商品 5 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('5.jpg')">
-                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full p-2">
+                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=天香茶花雙享禮盒'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花雙享禮盒</h3>
@@ -177,7 +175,7 @@
                     <!-- 商品 6 -->
                     <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('6.jpg')">
-                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full p-2">
+                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full p-2" onerror="this.src='https://placehold.co/400x300/f8fafc/amber-700?text=伴手禮盒+250mL'">
                         </div>
                         <div class="flex-grow">
                             <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀伴手禮盒</h3>
@@ -199,7 +197,6 @@
                 </div>
             </section>
 
-            <!-- 2. 收件人資訊 -->
             <section>
                 <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
                     <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
@@ -218,6 +215,10 @@
                         <label class="block text-sm font-medium text-slate-700 mb-2">送貨地址 <span class="text-red-500">*</span></label>
                         <input type="text" id="customerAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="請輸入完整收件地址">
                     </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">電子郵件 Email <span class="text-slate-400 font-normal text-xs">(選填 / 供訂單與領據通知)</span></label>
+                        <input type="email" id="customerEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="例如：example@gmail.com">
+                    </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">發票抬頭 <span class="text-slate-400 font-normal text-xs">(選填)</span></label>
                         <input type="text" id="companyName" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="公司抬頭">
@@ -229,15 +230,12 @@
                 </div>
             </section>
 
-            <!-- 3. 結帳與條款 -->
             <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl space-y-6">
-                <!-- 酒類法規與合規免責提示 -->
                 <div class="bg-slate-800/80 p-4 rounded-xl text-xs text-slate-300 border border-slate-700 space-y-2">
                     <p class="text-amber-400 font-bold">⚠️ 依《菸酒管理法》規定與金流審查說明：</p>
                     <p>本網站酒類商品僅提供預購意願登記與詢價，送出訂單後將由客服專人與您聯繫確認購買人年齡與身份，方可安排後續對帳與出貨事宜，本站絕不向未滿 18 歲者銷售酒類產品。</p>
                 </div>
 
-                <!-- 同意條款勾選框 (銀行金流必備) -->
                 <div class="flex items-start space-x-3">
                     <input type="checkbox" id="termsAgreement" required class="mt-1 w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-slate-700 bg-slate-800 cursor-pointer">
                     <label for="termsAgreement" class="text-xs sm:text-sm text-slate-300 leading-relaxed cursor-pointer">
@@ -356,6 +354,7 @@
 
             const orderData = {
                 name, phone, address,
+                email: document.getElementById('customerEmail').value.trim(),
                 companyName: document.getElementById('companyName').value,
                 taxId: document.getElementById('taxId').value,
                 qty1: parseInt(document.getElementById('qty1').value) || 0,
