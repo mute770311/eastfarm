@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預購商品 | HANASKEY & 天香茶花酒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, .brand-font { font-family: 'Noto Serif TC', serif; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900 flex flex-col min-h-screen">
+
+    <div id="ageModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[300] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-slate-100">
+            <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold">18</div>
+            <h2 class="text-2xl font-bold brand-font mb-2 text-slate-900">歡迎蒞臨 東鄉事業</h2>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">依據台灣酒類法規，本網站販售酒類商品。<br>請確認您已年滿 18 歲，方可進入瀏覽與預購。</p>
+            <div class="space-y-3">
+                <button onclick="passAgeCheck()" class="w-full py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold transition shadow-lg shadow-amber-600/30">
+                    我已年滿 18 歲，進入網站
+                </button>
+                <button onclick="rejectAgeCheck()" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-medium transition">
+                    未滿 18 歲，離開
+                </button>
+            </div>
+            <p class="text-xs text-slate-400 mt-6 tracking-widest uppercase">禁止酒駕 ‧ 依法不售酒予未滿十八歲者</p>
+        </div>
+    </div>
+
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <a href="index.html" class="text-2xl font-black brand-font tracking-widest text-slate-900">
+                東鄉事業 <span class="text-amber-600">天香茶花</span>
+            </a>
+            <nav class="flex space-x-6 text-sm font-bold text-slate-600">
+                <a href="index.html" class="hover:text-amber-600 transition">首頁</a>
+                <a href="products.html" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">預購商品</a>
+                <a href="payment.html" class="hover:text-amber-600 transition">匯款與運費</a>
+                <a href="contact.html" class="hover:text-amber-600 transition">聯絡我們</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 flex-grow">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-3 text-slate-900">純粹品味，限量預購</h1>
+            <p class="text-slate-500 mb-4">選購滿額 NT$ 1,500 即享免運優惠！請選擇商品數量並填寫收件資訊。</p>
+            <div class="inline-flex items-center bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-xl text-sm font-medium">
+                🚚 單筆訂單滿 NT$ 1,500 免運費！未滿者酌收 NT$ 150 運費
+            </div>
+        </div>
+
+        <form id="orderForm" class="space-y-10">
+            <!-- 1. 選擇商品區 -->
+            <section>
+                <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
+                    <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                    選擇商品 <span class="ml-3 text-sm font-normal text-red-500 bg-red-50 px-2 py-1 rounded">🎉 中秋特惠中</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 商品 1 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('1.jpg')">
+                            <img src="1.jpg" alt="Hanaskey茶世紀700mL" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀</h3>
+                            <p class="text-slate-500 text-sm mb-4">700mL (42%)</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 3,800</span>
+                                <div id="price-qty1" class="font-bold text-xl text-red-600">NT$ 3,000</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty1" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty1', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 2 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('2.jpg')">
+                            <img src="2.jpg" alt="天香茶花酒600mL" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花酒</h3>
+                            <p class="text-slate-500 text-sm mb-4">600mL (53.1%)</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 4,800</span>
+                                <div id="price-qty2" class="font-bold text-xl text-red-600">NT$ 3,800</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty2" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty2', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 3 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('3.jpg')">
+                            <img src="3.jpg" alt="天香茶花飲" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲</h3>
+                            <p class="text-slate-500 text-sm mb-4">(8入)</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 600</span>
+                                <div id="price-qty3" class="font-bold text-xl text-red-600">NT$ 480</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty3', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty3" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty3', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 4 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('4.jpg')">
+                            <img src="4.jpg" alt="天香茶花飲禮盒" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花飲禮盒</h3>
+                            <p class="text-slate-500 text-sm mb-4">(8入*2)</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 1,200</span>
+                                <div id="price-qty4" class="font-bold text-xl text-red-600">NT$ 960</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty4', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty4" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty4', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 5 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('5.jpg')">
+                            <img src="5.jpg" alt="天香茶花雙享禮盒" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">天香茶花雙享禮盒</h3>
+                            <p class="text-slate-500 text-sm mb-4">精選雙享搭配</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 1,980</span>
+                                <div id="price-qty5" class="font-bold text-xl text-red-600">NT$ 1,580</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty5', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty5" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty5', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品 6 -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition flex flex-col relative overflow-hidden">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-white relative cursor-pointer" onclick="openLightbox('6.jpg')">
+                            <img src="6.jpg" alt="Hanaskey茶世紀伴手禮盒" class="object-contain w-full h-full p-2">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold brand-font mb-1 text-slate-900">Hanaskey茶世紀伴手禮盒</h3>
+                            <p class="text-slate-500 text-sm mb-4">伴手禮盒 (250mL)</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <span class="text-xs text-slate-400 line-through">原價 NT$ 1,280</span>
+                                <div id="price-qty6" class="font-bold text-xl text-red-600">NT$ 1,080</div>
+                            </div>
+                            <div class="flex items-center border rounded-lg bg-white">
+                                <button type="button" onclick="updateQty('qty6', -1)" class="px-3 py-1 font-bold">-</button>
+                                <input type="number" id="qty6" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
+                                <button type="button" onclick="updateQty('qty6', 1)" class="px-3 py-1 font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 2. 收件人資訊 -->
+            <section>
+                <h2 class="text-xl font-semibold mb-6 flex items-center border-b pb-2">
+                    <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                    收件人資訊
+                </h2>
+                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">姓名 <span class="text-red-500">*</span></label>
+                        <input type="text" id="customerName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="例如：王小明">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">聯絡電話 <span class="text-red-500">*</span></label>
+                        <input type="tel" id="customerPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="例如：0912345678">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">送貨地址 <span class="text-red-500">*</span></label>
+                        <input type="text" id="customerAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="請輸入完整收件地址">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">發票抬頭 <span class="text-slate-400 font-normal text-xs">(選填)</span></label>
+                        <input type="text" id="companyName" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="公司抬頭">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">統一編號 <span class="text-slate-400 font-normal text-xs">(選填)</span></label>
+                        <input type="text" id="taxId" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-amber-500 outline-none" placeholder="8碼數字統編">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 結帳與條款 -->
+            <section class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl space-y-6">
+                <div class="flex items-start space-x-3">
+                    <input type="checkbox" id="termsAgreement" required class="mt-1 w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-slate-700 bg-slate-800 cursor-pointer">
+                    <label for="termsAgreement" class="text-xs sm:text-sm text-slate-300 leading-relaxed cursor-pointer">
+                        我已年滿 18 歲，且已閱讀並同意東鄉事業之服務條款與隱私權政策。
+                    </label>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-2 border-t border-slate-800">
+                    <div>
+                        <div class="text-slate-400 text-sm mb-1">訂單總金額 (台幣 TWD)</div>
+                        <div class="text-3xl font-bold brand-font text-amber-400 flex items-baseline">
+                            <span class="text-lg mr-1">NT$</span>
+                            <span id="totalPrice">0</span>
+                        </div>
+                        <div id="shippingNote" class="text-xs text-amber-300/80 mt-1">未滿 NT$ 1,500，將自動加計運費 NT$ 150</div>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full md:w-auto px-10 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold transition shadow-lg shadow-amber-600/30 flex items-center justify-center">
+                        <span id="btnText">確認送出預購訂單</span>
+                    </button>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[200] hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-lg">
+    </div>
+
+    <script>
+        const prices = { qty1: 3000, qty2: 3800, qty3: 480, qty4: 960, qty5: 1580, qty6: 1080 };
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwb3-fLPHtKA_b6VU7_i4D6WcZ9JXtS1RYBCuSotcDfpxhviWKKujapDwfHOucvC0Pm/exec';
+
+        function passAgeCheck() { document.getElementById('ageModal').classList.add('hidden'); }
+        function rejectAgeCheck() { alert('未滿 18 歲不得瀏覽本站酒類商品。'); window.location.href = 'https://www.google.com'; }
+
+        function updateQty(id, change) {
+            const input = document.getElementById(id);
+            let newVal = (parseInt(input.value) || 0) + change;
+            input.value = newVal < 0 ? 0 : newVal;
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let productTotal = 0;
+            for (let key in prices) {
+                productTotal += (parseInt(document.getElementById(key).value) || 0) * prices[key];
+            }
+            let shippingFee = (productTotal > 0 && productTotal < 1500) ? 150 : 0;
+            const shippingNote = document.getElementById('shippingNote');
+            
+            if (productTotal > 0 && productTotal < 1500) {
+                shippingNote.innerText = '未滿 NT$ 1,500，已自動加計運費 NT$ 150';
+                shippingNote.className = 'text-xs text-amber-300 mt-1 font-medium';
+            } else if (productTotal >= 1500) {
+                shippingNote.innerText = '🎉 恭喜您已達 NT$ 1,500 免運門檻！';
+                shippingNote.className = 'text-xs text-green-300 mt-1 font-medium';
+            } else {
+                shippingNote.innerText = '未滿 NT$ 1,500，將自動加計運費 NT$ 150';
+                shippingNote.className = 'text-xs text-amber-300/80 mt-1';
+            }
+            document.getElementById('totalPrice').innerText = (productTotal + shippingFee).toLocaleString('en-US');
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            if (!name || !phone || !address) { alert('請填妥姓名、電話與送貨地址！'); return; }
+
+            const orderData = {
+                name, phone, address,
+                companyName: document.getElementById('companyName').value,
+                taxId: document.getElementById('taxId').value,
+                qty1: parseInt(document.getElementById('qty1').value) || 0,
+                qty2: parseInt(document.getElementById('qty2').value) || 0,
+                qty3: parseInt(document.getElementById('qty3').value) || 0,
+                qty4: parseInt(document.getElementById('qty4').value) || 0,
+                qty5: parseInt(document.getElementById('qty5').value) || 0,
+                qty6: parseInt(document.getElementById('qty6').value) || 0,
+                totalAmount: parseInt(document.getElementById('totalPrice').innerText.replace(/,/g, ''))
+            };
+
+            const btnText = document.getElementById('btnText');
+            btnText.innerText = '處理中...';
+            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(orderData) })
+            .then(() => {
+                alert('恭喜您成功送出訂單！請於3日內完成匯款，並來電 (03) 511-0098 告知。');
+                document.getElementById('orderForm').reset();
+                calculateTotal();
+                btnText.innerText = '確認送出預購訂單';
+            });
+        });
+
+        function openLightbox(src) { document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.remove('hidden'); }
+        function closeLightbox() { document.getElementById('lightbox').classList.add('hidden'); }
+    </script>
+
+    <footer class="mt-20 py-8 border-t border-slate-200 text-center text-xs text-slate-500 bg-white space-y-3">
+        <p class="font-bold text-red-600 text-sm sm:text-base">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
+        <p class="text-slate-600">東鄉事業股份有限公司 | 統一編號：83048466 | 交易幣別：新台幣 (TWD)</p>
+        <p class="text-slate-400">© 東鄉事業股份有限公司 版權所有 All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
