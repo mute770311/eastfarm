@@ -9,12 +9,11 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         h1, h2, h3, .brand-font { font-family: 'Noto Serif TC', serif; }
-        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
 <body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900 flex flex-col min-h-screen">
 
-    <!-- 18歲年齡驗證彈窗 -->
+    <!-- 18歲年齡驗證彈窗 (符合酒類法規) -->
     <div id="ageModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[300] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-slate-100">
             <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold">18</div>
@@ -61,13 +60,13 @@
         </div>
     </section>
 
+    <!-- 5 個完整的品牌故事區塊 -->
     <main class="max-w-5xl mx-auto px-6 py-12 flex-grow space-y-24">
         <div class="text-center">
             <div class="text-amber-600 font-semibold tracking-wider text-sm mb-2 uppercase">Brand Story</div>
             <h2 class="text-3xl sm:text-4xl font-bold brand-font text-slate-900">探索 天香茶花 的頂級體驗</h2>
         </div>
 
-        <!-- 5個完整的品牌故事區塊 (已移除 Chapter 字樣) -->
         <div class="space-y-20">
             <!-- 故事 1 -->
             <div class="flex flex-col-reverse md:flex-row items-center gap-10">
@@ -125,16 +124,16 @@
             </div>
         </div>
 
-        <!-- YouTube 影片嵌入區塊 -->
-        <section class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl space-y-6">
-            <div class="text-center">
+        <!-- 官方 YouTube 形象影片「直接嵌入」區塊 -->
+        <section class="bg-white rounded-3xl p-6 sm:p-10 text-center border border-slate-100 shadow-xl space-y-6 max-w-3xl mx-auto">
+            <div>
                 <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Official Video</span>
-                <h3 class="text-2xl font-bold brand-font text-slate-900">品牌形象影片</h3>
-                <p class="text-slate-500 text-sm mt-1">觀賞天香茶花與工藝釀造的動人故事</p>
+                <h3 class="text-2xl font-bold brand-font text-slate-900 mt-1">觀賞品牌形象影片</h3>
+                <p class="text-slate-500 text-sm mt-1">透過影片深入感受天香茶花與工藝釀造的動人故事</p>
             </div>
-            <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-slate-200 bg-slate-950">
-                <!-- 請將下方 src 的 YOUR_YOUTUBE_VIDEO_ID 替換成你們真正的 YouTube 影片 ID -->
-                <iframe class="w-full h-full" src="https://youtu.be/yTzec4Vyju0?si=j0vixcIVrm61yyOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- 使用響應式容器直接嵌入您的 iframe 影片 -->
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/yTzec4Vyju0?si=j0vixcIVrm61yyOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
     </main>
@@ -144,7 +143,7 @@
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
             <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">隱私權保護政策</h3>
             <div class="text-slate-600 text-sm leading-relaxed space-y-3">
-                <p>東鄉事業股份有限公司（以下簡稱「本公司」）非常重視您的個人隱私。為維護您的個人資料安全，特制定本隱私權政策，說明我們如何收集, 處理及利用您的個人資訊：</p>
+                <p>東鄉事業股份有限公司（以下簡稱「本公司」）非常重視您的個人隱私。為維護您的個人資料安全，特制定本隱私權政策，說明我們如何收集、處理及利用您的個人資訊：</p>
                 <h4 class="font-bold text-slate-900">一、 個人資料之收集目的與類別</h4>
                 <p>當您在本網站進行預購商品登記時，我們將收集您填寫的個人資料，包括：姓名、聯絡電話、送貨地址、電子郵件以及發票抬頭/統編。收集目的包含訂單處理、客戶服務、身分與年齡確認（依酒類法規）及寄送商品。</p>
                 <h4 class="font-bold text-slate-900">二、 資料利用之期間與對象</h4>
@@ -172,6 +171,7 @@
         </div>
     </div>
 
+    <!-- 頁尾合規資訊 -->
     <footer class="mt-20 py-8 border-t border-slate-200 text-center text-xs text-slate-500 bg-white space-y-3">
         <p class="font-bold text-red-600 text-sm sm:text-base">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
         <div class="flex flex-wrap justify-center gap-4 text-slate-600 pt-1">
