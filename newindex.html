@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HANASKEY & 天香茶花酒 | Canvas 預覽預購平台</title>
+    <title>HANASKEY & 天香茶花酒 | 官方網站</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -35,26 +35,26 @@
     <!-- 導覽列 -->
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
         <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <a href="#home" class="text-2xl font-black brand-font tracking-widest text-slate-900">
+            <a href="newindex.html" class="text-2xl font-black brand-font tracking-widest text-slate-900">
                 東鄉事業 <span class="text-amber-600">天香茶花</span>
             </a>
             <nav class="flex space-x-6 text-sm font-bold text-slate-600">
-                <a href="#home" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">首頁</a>
-                <a href="#products" class="hover:text-amber-600 transition">預購商品</a>
-                <a href="#previewCanvas" class="hover:text-amber-600 transition">互動預覽</a>
-                <a href="#contact" class="hover:text-amber-600 transition">聯絡我們</a>
+                <a href="newindex.html" class="text-amber-600 border-b-2 border-amber-600 pb-0.5">首頁</a>
+                <a href="products.html" class="hover:text-amber-600 transition">預購商品</a>
+                <a href="payment.html" class="hover:text-amber-600 transition">匯款與運費</a>
+                <a href="contact.html" class="hover:text-amber-600 transition">聯絡我們</a>
             </nav>
         </div>
     </header>
 
     <!-- 主視覺區塊 -->
-    <section id="home" class="bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-transparent py-20 text-center px-6">
+    <section class="bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-transparent py-20 text-center px-6">
         <div class="max-w-3xl mx-auto">
             <div class="text-amber-700 font-semibold tracking-widest text-sm mb-3 uppercase">Crafted with Passion</div>
             <h1 class="text-4xl sm:text-5xl font-extrabold brand-font text-slate-900 mb-6 leading-tight">淬鍊大地香氣，純粹品味生活</h1>
             <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">手工採摘天香茶花，搭配低溫乾燥工藝，為您呈現獨一無二的茶花風味茶飲與烈酒。</p>
             <div class="flex justify-center gap-4">
-                <a href="#products" class="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold shadow-lg shadow-amber-600/30 transition duration-300">
+                <a href="products.html" class="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold shadow-lg shadow-amber-600/30 transition duration-300">
                     立即前往預購商品 ➔
                 </a>
             </div>
@@ -67,6 +67,7 @@
             <h2 class="text-3xl sm:text-4xl font-bold brand-font text-slate-900">探索 天香茶花 的頂級體驗</h2>
         </div>
 
+        <!-- 5個完整的品牌故事區塊 (已移除 Chapter 字樣) -->
         <div class="space-y-20">
             <!-- 故事 1 -->
             <div class="flex flex-col-reverse md:flex-row items-center gap-10">
@@ -124,108 +125,66 @@
             </div>
         </div>
 
-        <!-- Canvas 視覺化特效區塊 -->
-        <section id="previewCanvas" class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl space-y-6 scroll-mt-24 mt-24">
+        <!-- YouTube 影片嵌入區塊 -->
+        <section class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl space-y-6">
             <div class="text-center">
-                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Live Dynamic Renderer</span>
-                <h3 class="text-2xl font-bold brand-font text-slate-900">品牌視覺化 即時渲染</h3>
-                <p class="text-slate-500 text-sm mt-1">即時展示您的品牌標誌與茶花萃取色澤動態效果</p>
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Official Video</span>
+                <h3 class="text-2xl font-bold brand-font text-slate-900">品牌形象影片</h3>
+                <p class="text-slate-500 text-sm mt-1">觀賞天香茶花與工藝釀造的動人故事</p>
             </div>
-            <div class="flex justify-center w-full overflow-hidden">
-                <canvas id="brandCanvas" width="800" height="400" class="rounded-2xl shadow-inner border border-slate-200 bg-slate-900 max-w-full"></canvas>
+            <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-slate-200 bg-slate-950">
+                <!-- 請將下方 src 的 YOUR_YOUTUBE_VIDEO_ID 替換成你們真正的 YouTube 影片 ID -->
+                <iframe class="w-full h-full" src="https://youtu.be/yTzec4Vyju0?si=j0vixcIVrm61yyOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="flex justify-center gap-4">
-                <button onclick="changeCanvasTheme('amber')" class="px-6 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-sm font-semibold shadow transition">奢華金茶花</button>
-                <button onclick="changeCanvasTheme('emerald')" class="px-6 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-sm font-semibold shadow transition">友善翠綠</button>
-            </div>
-        </section>
-
-        <!-- 產品模擬結帳區 -->
-        <section id="products" class="scroll-mt-24 pt-20">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold mb-3 text-slate-900">純粹品味，限量預購</h2>
-                <p class="text-slate-500">單筆訂單滿 NT$ 1,500 即享免運優惠！</p>
-            </div>
-
-            <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold brand-font mb-1">Hanaskey茶世紀</h3>
-                            <p class="text-slate-500 text-sm mb-4">700mL (42%)</p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t">
-                            <span class="font-bold text-xl text-red-600">NT$ 3,000</span>
-                            <div class="flex items-center border rounded-lg bg-white">
-                                <button type="button" onclick="updateQty('qty1', -1)" class="px-3 py-1 font-bold">-</button>
-                                <input type="number" id="qty1" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty1', 1)" class="px-3 py-1 font-bold">+</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold brand-font mb-1">天香茶花酒</h3>
-                            <p class="text-slate-500 text-sm mb-4">600mL (53.1%)</p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t">
-                            <span class="font-bold text-xl text-red-600">NT$ 3,800</span>
-                            <div class="flex items-center border rounded-lg bg-white">
-                                <button type="button" onclick="updateQty('qty2', -1)" class="px-3 py-1 font-bold">-</button>
-                                <input type="number" id="qty2" value="0" min="0" class="w-12 text-center py-1 font-medium" readonly>
-                                <button type="button" onclick="updateQty('qty2', 1)" class="px-3 py-1 font-bold">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900 rounded-2xl p-6 text-white shadow-xl space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-slate-400 text-sm">訂單總金額</div>
-                            <div class="text-3xl font-bold brand-font text-amber-400">NT$ <span id="totalPrice">0</span></div>
-                        </div>
-                        <button type="submit" class="px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold transition shadow-lg">
-                            模擬送出訂單
-                        </button>
-                    </div>
-                </div>
-            </form>
         </section>
     </main>
 
     <!-- 隱私權政策 Modal -->
     <div id="privacyModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl space-y-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
             <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">隱私權保護政策</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">東鄉事業股份有限公司非常重視您的個人隱私，所有填寫之資料僅供訂單聯繫與年齡確認使用。</p>
-            <button onclick="closeLegalModal('privacyModal')" class="w-full py-3 bg-amber-600 text-white rounded-xl font-medium">關閉</button>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <p>東鄉事業股份有限公司（以下簡稱「本公司」）非常重視您的個人隱私。為維護您的個人資料安全，特制定本隱私權政策，說明我們如何收集, 處理及利用您的個人資訊：</p>
+                <h4 class="font-bold text-slate-900">一、 個人資料之收集目的與類別</h4>
+                <p>當您在本網站進行預購商品登記時，我們將收集您填寫的個人資料，包括：姓名、聯絡電話、送貨地址、電子郵件以及發票抬頭/統編。收集目的包含訂單處理、客戶服務、身分與年齡確認（依酒類法規）及寄送商品。</p>
+                <h4 class="font-bold text-slate-900">二、 資料利用之期間與對象</h4>
+                <p>您的個人資料僅會由本公司及必要之第三方物流配送夥伴在經營業務所需之範圍與期間內使用。我們承諾絕不會將您的資料出售、出租或交換予任何無關之第三方。</p>
+                <h4 class="font-bold text-slate-900">三、 資料安全保護</h4>
+                <p>本公司採用符合安全標準之網路傳輸加密機制與資料庫防護措施，確保您的個資不致洩漏或遭到未授權存取。</p>
+            </div>
+            <button onclick="closeLegalModal('privacyModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
         </div>
     </div>
 
-    <!-- 服務條款 Modal -->
+    <!-- 服務條款與退換貨政策 Modal -->
     <div id="termsModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl space-y-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
             <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">服務條款與退換貨政策</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">依據菸酒管理法規定，酒類僅供預購登記。食品及酒類拆封後恕不接受退換貨。</p>
-            <button onclick="closeLegalModal('termsModal')" class="w-full py-3 bg-amber-600 text-white rounded-xl font-medium">關閉</button>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <h4 class="font-bold text-slate-900">一、 酒類交易規範與預購說明</h4>
+                <p>依據《菸酒管理法》規定，本網站酒類商品僅提供預購登記與詢價。送出預購訂單後，將由客服專人與您聯繫，確認購買人已年滿 18 歲，方可進入正式交易流程與安排配送。</p>
+                <h4 class="font-bold text-slate-900">二、 7 天鑑賞期與退換貨說明</h4>
+                <p>1. 依《消費者保護法》規定，消費者享有商品到貨後 7 天猶豫期（鑑賞期）之權益。猶豫期並非試用期，退回之商品必須維持全新狀態且包裝完整。</p>
+                <p>2. 食品及酒類商品一經拆封（如瓶蓋密封破損、封條撕毀等），因衛生及食品安全考量，除商品本身瑕疵外，恕不接受退換貨。</p>
+                <p>3. 若您收到之商品有破損、滲漏或品質異常，請於收到商品 48 小時內拍攝照片並聯繫客服專線 (03) 511-0098，我們將儘速為您辦理免費補寄或退款。</p>
+            </div>
+            <button onclick="closeLegalModal('termsModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
         </div>
     </div>
 
     <footer class="mt-20 py-8 border-t border-slate-200 text-center text-xs text-slate-500 bg-white space-y-3">
-        <p class="font-bold text-red-600 text-sm">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
-        <div class="flex flex-wrap justify-center gap-4 text-slate-600">
+        <p class="font-bold text-red-600 text-sm sm:text-base">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
+        <div class="flex flex-wrap justify-center gap-4 text-slate-600 pt-1">
             <span>東鄉事業股份有限公司</span><span>|</span><span>統一編號：83048466</span><span>|</span><span>交易幣別：新台幣 (TWD)</span>
         </div>
         <div class="flex justify-center space-x-4 text-slate-400">
-            <button onclick="openLegalModal('termsModal')" class="hover:text-amber-700">服務條款</button><span>‧</span>
-            <button onclick="openLegalModal('privacyModal')" class="hover:text-amber-700">隱私權政策</button>
+            <button onclick="openLegalModal('termsModal')" class="hover:text-amber-700 transition">服務條款</button><span>‧</span>
+            <button onclick="openLegalModal('privacyModal')" class="hover:text-amber-700 transition">隱私權政策</button>
         </div>
+        <p class="text-slate-400">© 東鄉事業股份有限公司 版權所有 All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Modal Logic
         function passAgeCheck() { document.getElementById('ageModal').classList.add('hidden'); }
         function rejectAgeCheck() { 
             let msgBox = document.createElement('div');
@@ -234,100 +193,6 @@
         }
         function openLegalModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeLegalModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-        // Order Form Logic
-        function updateQty(id, change) {
-            const input = document.getElementById(id);
-            let val = (parseInt(input.value) || 0) + change;
-            input.value = val < 0 ? 0 : val;
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            let t = (parseInt(document.getElementById('qty1').value) || 0) * 3000 + (parseInt(document.getElementById('qty2').value) || 0) * 3800;
-            document.getElementById('totalPrice').innerText = t.toLocaleString();
-        }
-
-        function handleOrderSubmit(e) {
-            e.preventDefault();
-            let msgBox = document.createElement('div');
-            msgBox.innerHTML = `<div class="fixed inset-0 bg-black/80 z-[400] flex items-center justify-center p-4"><div class="bg-white p-8 rounded-2xl max-w-sm text-center shadow-xl"><div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">✓</div><h3 class="text-xl font-bold mb-2">模擬預購送出成功！</h3><p class="text-slate-500 mb-6 text-sm">此為預覽畫面，實際將同步至 Google 試算表。</p><button onclick="this.closest('.fixed').remove()" class="w-full py-3 bg-slate-900 text-white rounded-xl font-medium">關閉</button></div></div>`;
-            document.body.appendChild(msgBox);
-        }
-
-        // Canvas Animation Logic
-        const canvas = document.getElementById('brandCanvas');
-        const ctx = canvas.getContext('2d');
-        let angle = 0;
-        let currentTheme = 'amber';
-        let particles = [];
-
-        for(let i=0; i<50; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 2 + 1,
-                speed: Math.random() * 0.5 + 0.1
-            });
-        }
-
-        function drawCanvas() {
-            let grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            if(currentTheme === 'amber') {
-                grad.addColorStop(0, '#1c1917');
-                grad.addColorStop(1, '#451a03');
-            } else {
-                grad.addColorStop(0, '#022c22');
-                grad.addColorStop(1, '#064e3b');
-            }
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = currentTheme === 'amber' ? 'rgba(251, 191, 36, 0.5)' : 'rgba(52, 211, 153, 0.5)';
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-                p.y -= p.speed;
-                if(p.y < 0) p.y = canvas.height;
-            });
-
-            ctx.save();
-            ctx.translate(canvas.width / 2, canvas.height / 2);
-            ctx.rotate(angle);
-            ctx.strokeStyle = currentTheme === 'amber' ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            
-            for (let i = 0; i < 8; i++) {
-                ctx.rotate(Math.PI / 4);
-                ctx.moveTo(0, 0);
-                ctx.bezierCurveTo(40, -40, 80, -20, 100, 0);
-                ctx.bezierCurveTo(80, 20, 40, 40, 0, 0);
-            }
-            ctx.stroke();
-            ctx.restore();
-
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 36px "Noto Serif TC", serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('東鄉事業 ‧ 天香茶花', canvas.width / 2, canvas.height / 2 - 15);
-
-            ctx.fillStyle = currentTheme === 'amber' ? '#fde68a' : '#a7f3d0';
-            ctx.font = '16px Inter, sans-serif';
-            ctx.fillText('5 Stories Premium Collection', canvas.width / 2, canvas.height / 2 + 25);
-
-            angle += 0.005;
-            requestAnimationFrame(drawCanvas);
-        }
-
-        function changeCanvasTheme(theme) {
-            currentTheme = theme;
-        }
-
-        window.onload = function() {
-            drawCanvas();
-        };
     </script>
 </body>
 </html>
