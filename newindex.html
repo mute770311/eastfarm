@@ -13,6 +13,24 @@
 </head>
 <body class="text-slate-800 antialiased selection:bg-amber-200 selection:text-amber-900 flex flex-col min-h-screen">
 
+    <!-- 18歲年齡驗證彈窗 (符合酒類法規) -->
+    <div id="ageModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[300] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-slate-100">
+            <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold">18</div>
+            <h2 class="text-2xl font-bold brand-font mb-2 text-slate-900">歡迎蒞臨 東鄉事業</h2>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">依據台灣酒類法規，本網站販售酒類商品。<br>請確認您已年滿 18 歲，方可進入瀏覽與預購。</p>
+            <div class="space-y-3">
+                <button onclick="passAgeCheck()" class="w-full py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-semibold transition shadow-lg shadow-amber-600/30">
+                    我已年滿 18 歲，進入網站
+                </button>
+                <button onclick="rejectAgeCheck()" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-medium transition">
+                    未滿 18 歲，離開
+                </button>
+            </div>
+            <p class="text-xs text-slate-400 mt-6 tracking-widest uppercase">禁止酒駕 ‧ 依法不售酒予未滿十八歲者</p>
+        </div>
+    </div>
+
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
         <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <a href="index.html" class="text-2xl font-black brand-font tracking-widest text-slate-900">
@@ -90,9 +108,60 @@
         </div>
     </main>
 
+    <!-- 隱私權政策 Modal -->
+    <div id="privacyModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
+            <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">隱私權保護政策</h3>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <p>東鄉事業股份有限公司（以下簡稱「本公司」）非常重視您的個人隱私。為維護您的個人資料安全，特制定本隱私權政策，說明我們如何收集、處理及利用您的個人資訊：</p>
+                <h4 class="font-bold text-slate-900">一、 個人資料之收集目的與類別</h4>
+                <p>當您在本網站進行預購商品登記時，我們將收集您填寫的個人資料，包括：姓名、聯絡電話、送貨地址、電子郵件以及發票抬頭/統編。收集目的包含訂單處理、客戶服務、身分與年齡確認（依酒類法規）及寄送商品。</p>
+                <h4 class="font-bold text-slate-900">二、 資料利用之期間與對象</h4>
+                <p>您的個人資料僅會由本公司及必要之第三方物流配送夥伴在經營業務所需之範圍與期間內使用。我們承諾絕不會將您的資料出售、出租或交換予任何無關之第三方。</p>
+                <h4 class="font-bold text-slate-900">三、 資料安全保護</h4>
+                <p>本公司採用符合安全標準之網路傳輸加密機制與資料庫防護措施，確保您的個資不致洩漏或遭到未授權存取。</p>
+            </div>
+            <button onclick="closeLegalModal('privacyModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
+        </div>
+    </div>
+
+    <!-- 服務條款與退換貨政策 Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[250] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl space-y-4">
+            <h3 class="text-2xl font-bold brand-font text-slate-900 border-b pb-3">服務條款與退換貨政策</h3>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <h4 class="font-bold text-slate-900">一、 酒類交易規範與預購說明</h4>
+                <p>依據《菸酒管理法》規定，本網站酒類商品僅提供預購登記與詢價。送出預購訂單後，將由客服專人與您聯繫，確認購買人已年滿 18 歲，方可進入正式交易流程與安排配送。</p>
+                <h4 class="font-bold text-slate-900">二、 7 天鑑賞期與退換貨說明</h4>
+                <p>1. 依《消費者保護法》規定，消費者享有商品到貨後 7 天猶豫期（鑑賞期）之權益。猶豫期並非試用期，退回之商品必須維持全新狀態且包裝完整。</p>
+                <p>2. 食品及酒類商品一經拆封（如瓶蓋密封破損、封條撕毀等），因衛生及食品安全考量，除商品本身瑕疵外，恕不接受退換貨。</p>
+                <p>3. 若您收到之商品有破損、滲漏或品質異常，請於收到商品 48 小時內拍攝照片並聯繫客服專線 (03) 511-0098，我們將儘速為您辦理免費補寄或退款。</p>
+            </div>
+            <button onclick="closeLegalModal('termsModal')" class="w-full py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl font-medium transition">我已閱讀並瞭解</button>
+        </div>
+    </div>
+
+    <script>
+        function passAgeCheck() { document.getElementById('ageModal').classList.add('hidden'); }
+        function rejectAgeCheck() { alert('未滿 18 歲不得瀏覽本站酒類商品。'); window.location.href = 'https://www.google.com'; }
+        function openLegalModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeLegalModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+    </script>
+
     <footer class="mt-20 py-8 border-t border-slate-200 text-center text-xs text-slate-500 bg-white space-y-3">
         <p class="font-bold text-red-600 text-sm sm:text-base">⚠️ 警告：禁止酒駕 ‧ 飲酒過量，有害健康 ‧ 未滿十八歲禁止飲酒</p>
-        <p class="text-slate-600">東鄉事業股份有限公司 | 統一編號：83048466 | 交易幣別：新台幣 (TWD)</p>
+        <div class="flex flex-wrap justify-center gap-4 text-slate-600 pt-1">
+            <span>東鄉事業股份有限公司</span>
+            <span>|</span>
+            <span>統一編號：83048466</span>
+            <span>|</span>
+            <span>交易幣別：新台幣 (TWD)</span>
+        </div>
+        <div class="flex justify-center space-x-4 pt-1 text-slate-400">
+            <button type="button" onclick="openLegalModal('termsModal')" class="hover:text-amber-700 transition">服務條款與退換貨政策</button>
+            <span>‧</span>
+            <button type="button" onclick="openLegalModal('privacyModal')" class="hover:text-amber-700 transition">隱私權保護政策</button>
+        </div>
         <p class="text-slate-400">© 東鄉事業股份有限公司 版權所有 All Rights Reserved.</p>
     </footer>
 
